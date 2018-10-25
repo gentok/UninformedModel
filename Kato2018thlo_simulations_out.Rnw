@@ -1,0 +1,47 @@
+%%% CLASS SETTING %%%
+\documentclass[doc,natbib,12pt]{apa6}
+\usepackage{natbib}
+\geometry{margin=1in} % one inch margin (if using apa6)
+\bibpunct[, ]{(}{)}{,}{a}{}{,} % sets the punctuation of the bibliography entires.
+
+%%% Paper Information %%%
+\title{Graphs for the Logic and Consequences of Uninformed Voting: Formal Assessment of Low-Information Competence} % set the title of the document
+\shorttitle{Graph Outputs}
+\author{Gento Kato}
+\affiliation{University of California, Davis and Waseda University}
+\note{Last Update: October 21, 2018}
+
+% Other Packages/Settings
+\usepackage{amsfonts, amsmath, amssymb, bm} %Math fonts and symbols
+\usepackage[format=hang, justification=centering]{caption}
+\usepackage{dcolumn, multirow} % decimal-aligned columns, multi-row cells
+\usepackage{graphicx, subfigure, float} % graphics commands
+\usepackage[colorlinks="red"]{hyperref}
+\usepackage{setspace}% allows toggling of double/single-spacing
+\doublespace % set document spacing to double
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=0mm}
+
+\begin{document}
+	\maketitle
+	
+	<<include=F>>=
+	load("C:/GoogleDrive/Projects/Uninformed_Model/manuscript/ver2/Kato2018thlo_simulations.RData")
+	library(ggplot2)
+	library(grid)
+	library(gridExtra)
+	@
+	
+	<<abgraph, echo=F, warning=F, fig.width=6.5, fig.height=4, fig.align="center", dev="pdf", fig.pos='h!!!', fig.cap="Abstention Interval", message=F>>=
+	abgraph
+	@
+	
+	<<abtype, echo=F, warning=F, fig.width=6.5, fig.height=3.5, fig.align="center", dev="pdf", fig.pos='h!!!', fig.cap="Abstention Type", message=F>>=
+	abtype
+	@
+	
+	<<eupgraph, echo=F, warning=F, fig.width=10, fig.height=7.5, fig.align="center", dev="pdf", fig.pos='h!!!', fig.cap="Policy Quality Decision", message=F>>=
+	grid.arrange(p123456)
+	@
+			
+\end{document}
