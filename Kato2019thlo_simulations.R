@@ -100,7 +100,7 @@ abgraph <-
         legend.position = "bottom")
 abgraph              
 
-#' # Figure 3: e:c Ratio and the Probability of Ideologues ka, kr Explain 
+#' # Figure 3: d:c Ratio and the Probability of Ideologues ka, kr Explain 
 #' the Available Form of Abstention
 #' 
 #' ## Relevant Functions 
@@ -153,7 +153,7 @@ abtype <-
   geom_line(aes(y=limk0)) + 
   geom_vline(aes(xintercept=0), size=0.5) +
   facet_grid(.~cxt + cxte + cxtc,
-             labeller = label_bquote(cols = epsilon:c == .(cxte):.(cxtc))) + 
+             labeller = label_bquote(cols = d:c == .(cxte):.(cxtc))) + 
   scale_x_continuous(expand=c(0,0), limits=c(0,1.05)) +
   scale_y_continuous(expand=c(0,0), limits=c(0,1.05)) +
   scale_fill_manual(name="",
@@ -322,7 +322,9 @@ pils <- c(0,0.4,0.8) #(low pi, moderate pi, high pi)
 k0 <- 0.3
 k1 <- 0.3
 e <- 0.5
-cls <- c(0.4,0.2) # (Discouraged, Delegatory)
+els <- c(0.5, 0.8)
+c <- 0.4
+#cls <- c(0.4,0.2) # (Discouraged, Delegatory)
 pH <- 0.85
 
 ## Graph Y axis Limits
@@ -333,11 +335,12 @@ yl <- 0; yh <- 0.75
 ## Under the Discouraged Abstention Context 
 
 # Set c
-c <- cls[1]
+e <- els[1]
+#c <- cls[1]
 
 # Title Text
 titletxt123 <- bquote(bold("The Discouraged Abstention Context (" ~ 
-                             epsilon == .(e) ~ ", " ~  c == .(c) ~ ")"))
+                             d == .(e) ~ ", " ~  c == .(c) ~ ")"))
 
 # Plot
 p1 <- Fgphi2(phi,pH,pi=pils[1],k1,k0,e,c) +
@@ -358,11 +361,12 @@ grid.arrange(p123)
 ## Under the Delegatory Abstention Context
 
 # Set c
-c <- cls[2]
+e <- els[2]
+#c <- cls[2]
 
 # Title
 titletxt456 <- bquote(bold("The Delegatory Abstention Context (" ~ 
-                             epsilon == .(e) ~ ", " ~  c == .(c) ~ ")"))
+                             d == .(e) ~ ", " ~  c == .(c) ~ ")"))
 titletxt456
 
 # Plot

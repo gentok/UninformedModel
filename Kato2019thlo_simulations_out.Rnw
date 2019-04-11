@@ -26,21 +26,21 @@
 	\maketitle
 	
 	<<include=F>>=
-	load("C:/GoogleDrive/Projects/Uninformed_Model/manuscript/ver2/Kato2018thlo_simulations.RData")
+	load("C:/GoogleDrive/Projects/Uninformed_Model/manuscript/ver4/Kato2018thlo_simulations.RData")
 	library(ggplot2)
 	library(grid)
 	library(gridExtra)
 	@
 	
-	<<abgraph, echo=F, warning=F, fig.width=6.5, fig.height=4, fig.align="center", dev="pdf", fig.pos='h!!!', fig.cap="Abstention Interval", message=F>>=
+	<<abgraph, echo=F, warning=F, fig.width=6.5, fig.height=3.5, fig.align="center", dev="jpeg", dpi=500, fig.pos='h!!!', fig.cap="Abstention Interval", message=F>>=
 	abgraph
 	@
 	
-	<<abtype, echo=F, warning=F, fig.width=6.5, fig.height=3.5, fig.align="center", dev="pdf", fig.pos='h!!!', fig.cap="Abstention Type", message=F>>=
+	<<abtype, echo=F, warning=F, fig.width=7, fig.height=3.5, fig.align="center", dev="jpeg", dpi=500, fig.pos='h!!!', fig.cap="Abstention Type", message=F>>=
 	abtype
 	@
 	
-	<<eupgraph, echo=F, warning=F, fig.width=10, fig.height=7.5, fig.align="center", dev="pdf", fig.pos='h!!!', fig.cap="Policy Quality Decision", message=F>>=
+	<<eupgraph, echo=F, warning=F, fig.width=10, fig.height=6.5, fig.align="center", dev="jpeg", dpi=500, fig.pos='h!!!', fig.cap="Policy Quality Decision", message=F>>=
 	grid.arrange(p123456)
 	@
 			
