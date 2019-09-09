@@ -1,0 +1,663 @@
+%TC:ignore
+
+\clearpage
+\appendix
+\pagestyle{plain}
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+\section{Supporting Materials } %(Not Intended for Print)
+
+\par This is the Online Appendix of ``When Uninformed Abstention Improves Democratic Accountability.''
+
+\subsection{Appendix A: Voting Game Proofs}
+
+\subsubsection{The Proof of Lemma 1}
+
+\par In the voting game, consider the expected payoffs of ideologue voters. 
+If approval ideologues ($\beta_g > 1$):
+\begin{align*}
+EU_{\beta_g > 1 }(v_g=1, x_g=1) &= (1-\pi v_{-g} (1- x_{-g}))(\beta_g + q) + d - c \\
+EU_{\beta_g > 1 }(v_g=1, x_g=0) &= \pi v_{-g} x_{-g} (\beta_g + q) - c \\
+EU_{\beta_g > 1 }(v_g=0) &= v_{-g} x_{-g} (\beta_g + q)
+\end{align*} 
+\noindent The above functions imply: 
+\begin{align*}
+EU_{\beta_g > 1}&(v_g=1, x_g=1) - EU_{\beta_g > 1 }(v_g=1, x_g=1) \\
+=& (1- \pi v_{-g})(\beta_g + q) + d > 0 \\
+EU_{\beta_g > 1}&(v_g=1, x_g=0) - EU_{\beta_g > 1 }(v_g=0)  \\
+%=& (1-\pi v_{-g} (1- x_{-g}) -  v_{-g} x_{-g} )(\beta_g + q) + d -c \notag \\
+%=& (1-v_{-g} (\pi (1- x_{-g}) +  x_{-g} )(\beta_g + q) + d -c \notag \\
+=& (1-v_{-g} (\pi - x_{-g}(\pi - 1))(\beta_g + q) + d -c > 0 
+\end{align*}
+\noindent Therefore, approval ideologues prefer $v^*_g=1$ and $x^*_g=1$ regardless of the value of other parameters.
+
+\par If rejection ideologues ($\beta_g<-1$):
+\begin{align*}
+EU_{\beta_g<-1}(v_g=1, x_g=1) &= (1-\pi v_{-g} (1- x_{-g}))(\beta_g + q)  - c \\
+EU_{\beta_g<-1}(v_g=1, x_g=0) &= \pi v_{-g} x_{-g} (\beta_g + q) + d - c \\
+EU_{\beta_g<-1}(v_g=0) &= v_{-g} x_{-g} (\beta_g + q)
+\end{align*} 
+\noindent The above functions imply:
+\begin{align*}
+EU_{\beta_g<-1}&(v_g=1, x_g=1) - EU_{\beta_g<-1}(v_g=1, x_g=0) \\
+=& (1- \pi v_{-g})(\beta_g + q) - d < 0 \\
+EU_{\beta_g<-1}&(v_g=1, x_g=0) - EU_{\beta_g<-1}(v_g=0) \\
+=& v_{-g} x_{-g} (\pi-1) (\beta_g + q) + d -c  > 0
+\end{align*}
+\noindent Therefore, rejection ideologues prefer $v^*_g=1$ and $x^*_g=0$ regardless of the values of other parameters.
+
+\hfill $\blacksquare$
+
+\subsubsection{The Proof of Lemma 2}
+
+\par In the voting game, consider the expected payoffs of non-ideologue informed voters ($\beta_g \in [-1,1]$ and know $q$ with certainty). Denote them as $I$ in this proof. $I$   
+know the proposed policy quality $q$ and the self-ideology $\beta_I$ with certainty, but uncertain about whether they are pivotal in election (only knows $\pi$). Following equations represent the expected payoffs from possible sets of voting actions:
+\begin{align*}
+EU_I(v_I=1,x_I=1) = & (1-\pi v_U (1-x_U) ) (\beta_I + q) + d - c \\
+EU_I(v_I=1,x_I=0) = &\pi v_U x_U (\beta_I + q) + d - c \\
+EU_I(v_I=0) = &v_U  x_U (\beta_I + q)   
+\end{align*}
+\noindent Voting for approval ($v_I=1,x_I=1$) is more optimal than rejection ($v_I=1,x_I=0$) if and only if:
+\begin{align*}
+EU_I(v_I=1,x_I=1) &\geq EU_I(v_I=1,x_I=0)  \notag \\
+(1 -\pi v_U ) (\beta_I + q) - d &\geq 0 
+\end{align*}
+\noindent By assumption, $1-\pi v_U \geq 0$ and $d \geq 0$. Also, $I$ prefer approval over rejection if and only if $q=1$.
+
+\par Using the equilibrium vote preference, if $q=1$, $I$ participate if and only if:
+\begin{align*}
+EU_I(v_I=1,x_I=1) &\geq EU_I(v_I=0) \\
+(1- v_U(x_U + (1-x_U) \pi )) (\beta_I + 1) + d - c &\geq 0 
+\end{align*}
+\noindent By assumption, $\pi - 1 \leq 0$, $v_U \in \{0, 1\}$, $x_U  \in \{0, 1\}$, $d - c > 0$ and $\beta_I + 1 \geq 0$. Therefore, if $q=1$, $I$ participate and vote for approval (i.e., $v_I=1, x_I=1$) regardless of the values of other parameters.  
+
+\par Similarly, if $q=-1$, $I$ participate if and only if:
+\begin{align*}
+EU_I(v_I=1,x_I=0) &\geq EU_I(v_I=0)  \\
+(\pi - 1) v_U x_U (\beta_I - 1) + d - c &\geq 0 
+\end{align*}
+\noindent By assumption, $\pi - 1 \leq 0$, $v_U \in \{0, 1\}$, $x_U  \in \{0, 1\}$, $d - c > 0$ and $\beta_I - 1 \leq 0$. Therefore, if $q=-1$, $I$ participate and vote for rejection (i.e., $v_I=1, x_I=0$) regardless of the values of other parameters. 
+
+\par It is shown that in the equilibrium, $I$ always choose participation over abstention $v^*_I=1$ and vote for the option aligned with the policy quality $x^*_I=(1+q)/2$. \hfill $\blacksquare$
+
+\subsubsection{The Proof of Lemma 3}
+
+\par In the voting game, consider the expected payoffs of non-ideologue uninformed voters ($\beta_g \in [-1,1]$ and know $q$ only by $\phi$). Denote them as $U$ in this proof. $U$ know the self-ideology $\beta_U$ with certainty, but uncertain about the policy quality, the pivotal voter status (only knows $\pi$), and the ideology of informed voters (only know $\kappa_a$ and $\kappa_r$). Following equations represent the expected payoffs from possible sets of voting actions:
+\begin{align*}
+EU_U(v_U=1&, x_U=1) = 
+\pi (\phi (\beta_U + 1) + (1-\phi) (\beta_U - 1)) \\
+&(1-\pi) (\phi (1-\kappa_{r}) (\beta_U + 1) + (1-\phi ) \kappa_{a} (\beta_U - 1)) + \phi d - c \\
+EU_U(v_U=1& ,x_U=0) = \notag \\
+&(1-\pi) (\phi (1-\kappa_{r}) (\beta_U+1) + (1-\phi) \kappa_{a} (\beta_U - 1))+ (1-\phi) d - c \\
+EU_U(v_U=0&) = \phi (1-\kappa_{r}) (\beta_U+1) + (1-\phi) \kappa_{a} (\beta_U - 1)
+\end{align*}
+\noindent Voting for approval ($v_U=1,x_U=1$) is more optimal than rejection ($v_I=U,x_U=0$) if and only if:
+\begin{align*}
+EU_U(v_U=1, x_U=1) &\geq EU_U(v_U=1, x_U=0) \notag \\
+%\pi (\beta_U + 2\phi - 1) + d (2\phi -1) &\geq 0 \notag \\
+\phi &\geq \frac{1}{2} - \frac{\pi \beta_U}{2(\pi + d)} = \phi^*_x
+\end{align*}
+
+\par Given the equilibrium approval threshold $\phi^*_x$, consider the participation action $v_U$. When $\phi \geq \phi^*_x$, $U$ choose $v_U=1$ over $v_U=0$ if and only if:
+\begin{align*}
+EU_U(v_U=1, x_U=1) &\geq EU_U(v_U=0) \notag \\
+\phi &\geq \frac{\pi (1- \kappa_{a}) (1-\beta) + c}{\pi ((1 - \kappa_{a}) (1-\beta_U) + \kappa_{r} (1+\beta_U)) + d} = \phi^*_{va} 
+\end{align*}
+\noindent Similarly, when $\phi < \phi^*_x$, $U$ choose $v_U=1$ over $v_U=0$ if and only if: 
+\begin{align*}
+EU_U(v_U=1, x_U=0) &> EU_U(v_U=0) \notag \\
+\phi &< \frac{\pi \kappa_{a} (1-\beta) + d - c}{\pi ( \kappa_{a} (1-\beta_U) + (1-\kappa_{r}) (1+\beta_U) ) + d} = \phi^*_{vr} 
+\end{align*}
+
+\par Given $\phi^*_x$, $\phi^*_{va}$, and $\phi^*{vr}$, the equilibrium strategy of $U$ $(v^*_U,x^*_U)$ can be written as follows: 
+\begin{align*}
+(v^*_U, x^*_U) &= 
+\begin{cases}
+(1, 1) & \text{if and only if $\phi \geq \phi^*_x$ and $\phi \geq \phi^*_{va}$}\\
+(1, 0) & \text{if and only if $\phi < \phi^*_x$ and $\phi < \phi^*_{vr}$}\\
+(0, 1) & \text{if and only if $\phi \geq \phi^*_x$ and $\phi < \phi^*_{va}$}\\
+(0, 0) & \text{if and only if $\phi < \phi^*_x$ and $\phi \geq \phi^*_{vr}$}
+\end{cases}
+\end{align*}
+\hfill $\blacksquare$
+
+\subsubsection{The Proof of Lemma 4}
+
+\par In the voting game, consider the existence of the abstention interval with non-zero width. It exists if the condition satisfies $\phi^*_{v1x0} < \phi^*_x$ or $\phi_{v1x1} > \phi^*_x$. This condition can be represented by the unique threshold in $\pi$. The abstention interval with positive width exists if and only if:
+\begin{align*}
+\pi &> max \{\pi^*_{v01}, \pi^*_{v02}\}  \text{ or } \pi < min \{\pi^*_{v01}, \pi^*_{v02} \}  \text{ where } \\
+\pi^*_{v01} &= \frac{d( d - 2c ) }{\pi (1 - \beta_U^2) (1- \kappa_{r} - \kappa_{a}) - d ( \kappa_{r} (1 + \beta_U) + \kappa_{a} (1-\beta_U )) + 2c}  \\ 
+\pi^*_{v02} &= \frac{d (\kappa_{r}(1 + \beta_U) + \kappa_{a} (1-\beta_U)) - 2c}{(1 -\beta_U^2)(1-\kappa_{r}-\kappa_{a})} 
+\end{align*}
+\noindent The above condition implies if the width of the abstention interval is positive (i.e., $\lambda(\phi_{v1x0},\phi_{v1x1})>0$), it must be the case that:
+$$\phi_{v1x0}=\phi_{vr}<\phi^*_x<\phi_{va}=\phi_{v1x1}$$
+\noindent Therefore, if $\lambda(\phi_{v1x0},\phi_{v1x1})>0$:
+\begin{align*}
+\lambda(\phi_{v1x0},\phi_{v1x1}) = \lambda(\phi_{vr},&\phi_{va}) = \phi_{va}-\phi_{vr}= \\ 
+\frac{\pi (1- \kappa_{a}) (1-\beta) + c}{\pi (\kappa_{r} (1+\beta_U) + (1 - \kappa_{a}) (1-\beta_U)) + d} &- \frac{\pi \kappa_{a} (1-\beta) + d - c}{\pi ( (1-\kappa_{r}) (1+\beta_U) + \kappa_{a} (1-\beta_U)) + d} \\
+\end{align*}
+
+\par Consider the role of $c$. $\phi_{va}$ is increasing in $c$ and $\phi_{vr}$ is decreasing in $c$. Therefore, $\lambda(\phi_{v1x0},\phi_{v1x1})$ is increasing in $c$. 
+
+\par Consider the role of $d$. The denominator of $\phi_{va}$ is strictly increasing in $d$, thus $\phi_{vr}$ is decreasing in $d$. For $\phi_{vr}$, the following statements holds:
+\begin{align*}
+\frac{\pi \kappa_{a} (1-\beta) - c}{\pi ( (1-\kappa_{r}) (1+\beta_U) + \kappa_{a} (1-\beta_U))} &< 1 \text{ and } d/d = 1 \Rightarrow \lim_{d \to \infty} \phi_{vr} = 1 
+\end{align*}
+\noindent Therefore, $\phi_{va}$ is decreasing in $d$ and $\phi_{vr}$ is increasing in $d$: $\lambda(\phi_{v1x0},\phi_{v1x1})$ is decreasing in $d$.
+
+\par Consider the role of $\kappa_{r}$. $\phi_{vr}$ is weakly increasing in $\kappa_{r}$ and $\phi_{va}$ is weakly decreasing in $\kappa_{r}$. Therefore, the abstention interval $\lambda (\phi^*_{v1x0}, \phi^*_{v1x1})$ is weakly decreasing in $\kappa_{r}$. 
+
+\par Consider the role of $\kappa_{a}$. $\pi \kappa_{a} (1-\beta_U)= k_{0a}$ is weakly increasing in  $\kappa_{a}$  and $\pi (1-\kappa_{a}) (1-\beta_U) = k_{0b}$ is weakly decreasing in $\kappa_{a}$. Also, $k_{0a} \geq 0$ and $k_{0b} \geq 0$. Then, following equations represent the partial derivative of $\phi_{va}$ in terms of $k_{0b}$ and the partial derivative of $\phi_{vr}$ in terms of $k_{0a}$:
+\begin{align*}
+%\lambda (\phi^*_x, \phi^*_{va}) &= \frac{k_{0b} + c}{k_{0b} + \pi \kappa_{r}(1+\beta_U) + d} - \left( \frac{1}{2} - \frac{\pi \beta_U}{2(\pi + d)} \right) \\
+\frac{\partial}{\partial k_{0b}} \lambda (\phi^*_x, \phi^*_{va}) &= \frac{  \pi \kappa_{r}(1+\beta_U) + d - c}{(k_{0b} + \pi \kappa_{r}(1+\beta_U) + d)^2} \\
+%\lambda (\phi^*_{vr}, \phi^*_x) &= \left( \frac{1}{2} - \frac{\pi \beta_U}{2(\pi + d)} \right) - \frac{k_{0a} + d - c}{k_{0a} + \pi (1-\kappa_{r}) (1 + \beta_U) + d} \\  
+\frac{\partial}{\partial k_{0a}} \lambda (\phi^*_{vr}, \phi^*_x) &=  - \frac{\pi (1-\kappa_{r}) (1 + \beta_U) + 2 d - c}{(k_{0a} + \pi (1-\kappa_{r}) (1+\beta_U) + d)^2} 
+\end{align*}
+\noindent Since $d > c \geq 0$, $\pi \in [0,1]$, and $\kappa_{r} \in [0,1)$, $\frac{\partial}{\partial k_{0b}} \lambda (\phi^*_x, \phi^*_{vapp}) $ is strictly positive and $ \frac{\partial}{\partial k_{0b}} (\phi^*_{vrej}, \phi^*_x)$ is strictly negative. Therefore, $\lambda (\phi^*_x, \phi^*_{vapp})$ is strictly increasing in $k_{0b}$ and $\lambda (\phi^*_{vrej}, \phi^*_x)$ is strictly decreasing in $k_{0a}$. Consequently, the abstention interval $\lambda (\phi^*_{v1x0}, \phi^*_{v1x1})$ is weakly decreasing in $\kappa_{a}$. 
+
+\hfill $\blacksquare$
+
+\subsubsection{The Proof of Proposition 1}
+
+\par In the voting game, consider the relationship between $\lambda(\phi_{v1x0},\phi_{v1x1})$ and $\pi$. From Lemma 4, $\lambda(\phi_{v1x0},\phi_{v1x1})>0$ implies $\lambda(\phi_{v1x0},\phi_{v1x1})=\lambda(\phi_{vr},\phi_{va})$. Then, take the partial derivative of $\phi_{vr}$ in terms of $\pi$:
+\begin{align*}
+\frac{\partial}{\partial \pi} \phi_{vr} = \frac{-(d-c)(1-\kappa_r)(1+\beta_U) + c\kappa_a(1-\beta_U)}{\left(\pi\left(\left(1-\kappa_r\right)\left(1+\beta_U\right)+\kappa_a\left(1-\beta_U\right)\right)+d\right)^2}
+\end{align*}
+\noindent By assumption, the denominator of $\frac{\partial}{\partial \pi} \phi_{vr}$ is larger than zero. Therefore, $\phi_{vr}$ is increasing in $\pi$ if and only if:
+\begin{align*}
+-(d-c)(1-\kappa_r)(1+\beta_U) + c\kappa_a(1-\beta_U) &> 0 \\
+\frac{\kappa_a(1-\beta_U)}{(1-\kappa_r)(1+\beta_U)} &> \frac{d}{c} - 1
+\end{align*}
+
+\par Take the partial derivative of $\phi_{va}$ in terms of $\pi$:
+\begin{align*}
+\frac{\partial}{\partial \pi} \phi_{vr} = \frac{(d-c)(1-\beta_U)(1-\kappa_a) - c\kappa_r(1+\beta_U)}{\left(\pi\left(\kappa_r\left(1+\beta_U\right)+\left(1-\kappa_a\right)\left(1-\beta_U\right)\right)+d\right)^2}
+\end{align*}
+\noindent By assumption, the denominator of $\frac{\partial}{\partial \pi} \phi_{va}$ is larger than zero. Therefore, $\phi_{va}$ is decreasing in $\pi$ if and only if:
+\begin{align*}
+(d-c)(1-\beta_U)(1-\kappa_a) - c\kappa_r(1+\beta_U) &< 0 \\
+\frac{\kappa_r(1+\beta_U)}{(1-\kappa_a)(1-\beta_U)} &> \frac{d}{c} - 1
+\end{align*}
+\hfill $\blacksquare$
+
+\subsubsection{The Proof of Proposition 2}
+
+\par In the voting game, consider the case where $c=0$. From the proof of Proposition 1:
+\begin{align*}
+\lim_{c \to_{-} 0} d/c - 1 = \infty > \frac{\kappa_a(1-\beta_U)}{(1-\kappa_r)(1+\beta_U)} > \frac{\kappa_r(1+\beta_U)}{(1-\kappa_a)(1-\beta_U)}
+\end{align*}
+\noindent Therefore, the only possible form of abstention under $c=0$ is delegatory abstention. 
+
+\par From the proof of Lemma 4, $c=0$ implies that $\pi^*_{v02}>0$. Additionally, $c=0$ implies that $d > 2c$, indicates that the numerator of $\pi^*_{v01}$ is a positive value. Then, the following statements hold:
+\begin{align*}
+\pi<\pi^*_{v02} &\Rightarrow \text{ the denominator of $\pi^*_{v01} < 0$} \\
+\pi<\pi^*_{v02} &\Rightarrow \pi^*_{v01} < 0 \Rightarrow \pi < \pi^*_{v01} \text{ does not exist} \\
+\pi>\pi^*_{v02} &\Rightarrow \text{ the denominator of $\pi^*_{v01} > 0$} \\
+\pi>\pi^*_{v02} &\Rightarrow \pi^*_{v01} > 0 \Rightarrow \pi > \pi^*_{v01} \text{ may exist} \\
+\end{align*}
+\noindent From the above statements, the non-zero delegatory abstention interval (i.e., $\lambda(\phi^*_{v1x0},\phi^*_{v1x1}$) exists if and only if $\pi > max\{\pi^*_{v01},\pi^*_{v02}\}$.
+
+\par Consider the existence of $\pi > \pi^*_{v01}$. Since $\pi \leq 1$ by definition, this condition implies $\pi^*_{v01} < 1$. $\pi^*_{v01}$ is decreasing in $\pi$ and increasing in $\kappa_a$, $\kappa_r$. Also, $c=0 \Rightarrow d - 2c > 0$ implies $\pi^*_{v01}$ is increasing in $d$. The above relationships suggest that if $\pi > \pi^*_{v01}$ holds under $c=0$, it holds for sufficiently high $\pi$ and sufficiently low $\kappa_a$, $\kappa_r$, and $d$.
+
+\par To check the existence of such $\pi^*_{v01} < 1$, set $\pi$ to the maximum value $1$ and set $\kappa_a$ and $\kappa_r$ to the minimum value $0$. Under this condition, the non-zero abstention interval exists if and only if:
+\begin{align*}
+\pi^*_{v01}[\pi=1,\kappa_a=0,\kappa_r=0,c=0] = \frac{d^2 }{(1 - \beta_U^2)} &< 1\\
+d^2 &< 1 - \beta_U^2 \\
+d &< +\sqrt{1 - \beta_U^2} \text{ (since $d>0$)} 
+\end{align*}
+\noindent By assumption, $d < +\sqrt{1 - \beta_U^2}$ exists for any $\beta_U \in (-1,1)$. 
+
+\par Consider the existence of $\pi > \pi^*_{v02}$. This condition implies $\pi^*_{v02} <1$. When $c=0$, $\pi^*_{v02}$ is increasing in $\kappa_a$, $\kappa_r$, and $d$. To check the existence of such $\pi^*_{v02} <1$, fix $\kappa_a$ and $\kappa_r$ to $0$. Then, $\pi^*_{v02}[\kappa_a=0,\kappa_r=0,c=0] = 0 < 1$.
+
+\hfill $\blacksquare$ 
+
+\subsubsection{The Proof of Proposition 3}
+
+\par In the voting game, consider the expected policy utility (EPU, $E[a(\beta_g + q)]$) of non-ideologue uninformed voters. EPU is increasing in the abstention if and only if the expected policy utility from the electoral decision dominated by informed voters ($EPU_U[\pi=0]$) exceeds the expected utility from the uninformed vote ($EPU_U[\pi=1,v_U=1]$). First, assume that $\phi \geq \phi^*_x$ and the abstention interval exists. Compare EPUs from the informed vote and the uninformed approval vote:  
+\begin{align*}
+EPU_U[\pi=0] &\geq EPU_U[\pi=1,v_U=1,x_U=1] \\
+\phi(1-\kappa_r)(\beta_U+1) + (1-\phi)\kappa_a(\beta_U-1) &\geq \phi(\beta_U+1) + (1-\phi)(\beta_U-1) \\
+\phi &\leq \frac{(1-\kappa_a)(1-\beta_U)}{(1-\kappa_a)(1-\beta_U)+\kappa_r(1+\beta_U)}
+\end{align*}
+\noindent From Lemma 3, non-ideologue uninformed voters abstain for $\phi$ lower than $\phi^*_{v1x1}$. Under the delegatory abstention context, this threshold is maximized at $\pi=1$: 
+\begin{align*}
+max(\phi^*_{v1x1}) = \frac{(1-\kappa_a)(1-\beta_U) + c}{(1-\kappa_a)(1-\beta_U)+\kappa_r(1+\beta_U) + d}
+\end{align*}
+From Proposition 1 the following statement holds under the delegatory context:
+\begin{align*}
+\frac{\kappa_r(1+\beta_U)}{(1-\kappa_a)(1-\beta_U)} &\leq \frac{d}{c} - 1\\
+\frac{c}{d} &\leq \frac{(1-\kappa_a)(1-\beta_U)}{(1-\kappa_a)(1-\beta_U)+\kappa_r(1+\beta_U)}
+\end{align*}
+The above inequality implies:  
+\begin{align*}
+max(\phi^*_{v1x1}) \leq \frac{(1-\kappa_a)(1-\beta_U)}{(1-\kappa_a)(1-\beta_U)+\kappa_r(1+\beta_U)}
+\end{align*}
+\noindent Therefore, for all $\phi$ uninformed voters abstain under the delegatory abstention context, $EPU_U[\pi=0] \geq EPU_U[\pi=1,v_U=1,x_U=1]$ holds. The expected policy utility of non-ideologue uninformed voters is increasing in the delegatory abstention if $\phi \geq \phi^*_x$. 
+
+\par On the other hand, under the discouraged or mixed abstention context (with $\phi^*_{v1x1}$ weakly decreasing in $\pi$), $\phi^*_{v1x1}$ is minimized at $\pi=1$.
+\begin{align*}
+min(\phi^*_{v1x1}) = \frac{(1-\kappa_a)(1-\beta_U)+c}{(1-\kappa_a)(1-\beta_U)+\kappa_r(1+\beta_U)+d}
+\end{align*}
+\noindent Proposition 1 implies:
+\begin{align*}
+\frac{\kappa_r(1+\beta_U)}{(1-\kappa_a)(1-\beta_U)} &> \frac{d}{c} - 1\\
+\frac{c}{d} &> \frac{(1-\kappa_a)(1-\beta_U)}{(1-\kappa_a)(1-\beta_U)+\kappa_r(1+\beta_U)}
+\end{align*}
+\noindent Therefore, $EPU_U[\pi=0] \geq EPU_U[\pi=1,v_U=1,x_U=1]$ does not hold for some $\phi$ uninformed voters abstain under the discouraged or mixed abstention context (with $\phi^*_{v1x1}$ weakly decreasing in $\pi$). Under those contexts (when $\phi \geq \phi^*_x$), the expected policy utility of non-ideologue uninformed voters is potentially decreasing in the abstention.
+
+\par Second, assume that $\phi < \phi^*_x$ and the abstention interval exists. Compare EPUs from the informed vote and the uninformed rejection vote.  
+\begin{align*}
+EPU_U[\pi=0] &\geq EPU_U[\pi=1,v_U=1,x_U=0] \\
+\phi(1-\kappa_r)(\beta_U+1) + (1-\phi)\kappa_a(\beta_U-1) &\geq 0 \\
+\phi &\geq \frac{\kappa_a(1-\beta_U)}{\kappa_a(1-\beta_U)+(1-\kappa_r)(1+\beta_U)}
+\end{align*}
+\noindent From Lemma 3, non-ideologue uninformed voters abstain for $\phi$ higher than $\phi^*_{v1x0}$. Under the delegatory abstention context, this threshold is minimized at $\pi=1$: 
+\begin{align*}
+min(\phi^*_{v1x0}) = \frac{\kappa_a(1-\beta_U)+d-c}{\kappa_a(1-\beta_U)+(1-\kappa_r)(1+\beta_U)+d}
+\end{align*}
+From Proposition 1 the following statement holds under the delegatory context: 
+\begin{align*}
+\frac{\kappa_a(1-\beta_U)}{(1-\kappa_r)(1+\beta_U)} &\leq \frac{d}{c} - 1 \\
+\frac{d-c}{d} &\geq \frac{\kappa_a(1-\beta_U)}{\kappa_a(1-\beta_U)+(1-\kappa_r)(1+\beta_U)}
+\end{align*}
+The above inequality implies:  
+\begin{align*}
+min(\phi^*_{v1x0}) \geq \frac{\kappa_a(1-\beta_U)}{\kappa_a(1-\beta_U)+(1-\kappa_r)(1+\beta_U)}
+\end{align*}
+\noindent Therefore, for all $\phi$ uninformed voters abstain under the delegatory abstention context, $EPU_U[\pi=0] \geq EPU_U[\pi=1,v_U=1,x_U=0]$ holds. The expected policy utility of non-ideologue uninformed voters is increasing in the delegatory abstention if $\phi < \phi^*_x$. 
+
+\par On the other hand, under the discouraged or mixed abstention context (with $\phi^*_{v1x0}$ weakly increasing in $\pi$), $\phi^*_{v1x0}$ is maximized at $\pi=1$.
+\begin{align*}
+max(\phi^*_{v1x0}) = \frac{\kappa_a(1-\beta_U)+d-c}{\kappa_a(1-\beta_U)+(1-\kappa_r)(1+\beta_U)+d}
+\end{align*}
+\noindent Proposition 1 implies:
+\begin{align*}
+\frac{\kappa_a(1-\beta_U)}{(1-\kappa_r)(1+\beta_U)} &> \frac{d}{c} - 1 \\
+\frac{d-c}{d} &< \frac{\kappa_a(1-\beta_U)}{\kappa_a(1-\beta_U)+(1-\kappa_r)(1+\beta_U)}
+\end{align*}
+\noindent Therefore, $EPU_U[\pi=0] \geq EPU_U[\pi=1,v_U=1,x_U=1]$ does not hold for some $\phi$ uninformed voters abstain under the discouraged or mixed abstention context (with $\phi^*_{v1x0}$ weakly decreasing in $\pi$). Under those contexts (when $\phi < \phi^*_x$), the expected policy utility of non-ideologue uninformed voters is potentially decreasing in the abstention.
+
+\hfill $\blacksquare$
+
+\subsection{Appendix B: Accountability Game Proofs}
+
+\subsubsection{The Proof of Lemma 5}
+
+\par In the accountability game, the following equation represents the payoff function of the low-capacity policymaker.
+\begin{align*}
+u_P[T=L] = \begin{cases}
+2 - (1+q) &\text{ if the policy is approved} \\
+- (1+q) \cdot \cfrac{1+q}{2} &\text{ if the policy is rejected} \\
+\end{cases}
+\end{align*}
+Then, the following statements stand for the the expected utilities from policymaking:
+\begin{align*}
+EU_{P_L}[q_L=1] &= 2 \cdot Pr(approval)[q_L=1]  - 2 = 2 (Pr(approval)[q=1]-1) \leq 0\\
+EU_{P_L}[q_L=-1] &= 2 \cdot Pr(approval)[q_L=-1] \geq 0 \\
+EU_{P_L}[q_L=1] &\leq 0 \leq EU_{P_L}[q_L=-1]
+\end{align*}
+\noindent Therefore, assuming that players never play the weakly dominated strategies, the low-capacity policymaker ($T=L$) always proposes the low-quality policy ($q=-1$) in the equilibrium. 
+\hfill $\blacksquare$
+
+\subsubsection{The Proof of Proposition 4}
+
+\par In the accountability game, the low-capacity policymaker ($P_L$) chooses the low-quality policy for sure (Lemma 5) and voters use the logic explained in Lemma 1, 2 and 3 to determine their behavior. Given that, consider the decision of the high-capacity policymaker ($P_H$) under $\pi=0$ (pivotal voters are always informed). Following function illustrates the expected utility:
+\begin{align*}
+EU_{P_H} &= 
+\begin{cases}
+(1-\kappa_{r}) 2 - 1  & \text{if $q=1$} \\
+\kappa_{a} 2  & \text{if $q=-1$} 
+\end{cases} 
+\end{align*}
+$P_H$ is is better off proposing $q=1$ than $q=-1$ if and only if:
+\begin{align*}
+EU_{P_H}[q=1] &> EU_P[q=-1] \\
+\kappa_{a} + \kappa_{r} < 0.5
+\end{align*}
+Therefore, $P_H$ best responds by $q=1$ if $\kappa_{a} + \kappa_{r} < 0.5$ and by $q=-1$ if $\kappa_{a} + \kappa_{r} \geq 0.5$. 
+\hfill $\blacksquare$
+
+\subsubsection{The Example that $\phi^*_H$ moves down from $1$ under $\kappa_{a} + \kappa_{r} < 0.5$}
+
+\par Suppose that $\kappa_a+\kappa_r<0.5$. Under this condition, $P_H$ proposes the high-quality policy for sure (i.e., $\phi^*_H=1$) to the fully informed pivotal voters ($\pi=0$, Proposition 4). Since $\phi^*_H=1$ is the maximum possible value of $\phi^*_H$, showing the existence of $\phi^*_H<1$ under $\pi>0$ is enough to show that $\phi^*_H$ is weakly decreasing in the positive probability of uninformed pivotal voters. 
+
+\par Consider the condition where $p \geq \phi^*_{v1x1}[\pi=0]$ and $\phi^*_{v1x1}$ decreasing in $\pi$ (see the discouraged abstention described in relation to Proposition 1). This condition implies that $p \geq \phi^*_{v1x1}$ for any $\pi$. Also, $EU_{P_H}[v_U=1,x_U=1]$ is increasing in $\phi_H$ (i.e., maximized at $\phi^*_H=1$) if and only if:
+\begin{align*}
+1-2(\kappa_a+\kappa_r)-2\pi(1-\kappa_a-\kappa_r)&>0\\
+\pi &< \frac{1-2(\kappa_a+\kappa_r)}{2-2(\kappa_a+\kappa_r)}
+\end{align*}
+\noindent By assumption $\kappa_a+\kappa_r<0.5$, the right-hand side of the above inequality is larger than $0$. Consequently, the inequality always holds for $\pi=0$. On the other hand, when $\pi>0$, there exists a condition where $EU_{P_H}[v_U=1,x_U=1]$ is decreasing in $\phi_H$ for sufficiently high $\pi$. This example illustrates the existence of $\phi^*_H<1$ under $\pi=0$: $\phi^*_H$ is weakly decreasing in the presence of potentially pivotal uninformed voters ($\pi>0$). 
+
+\subsubsection{The Proof of Proposition 5}
+
+\par In the accountability game, consider the decision of the high-capacity policymaker ($P_H$) under the positive prior probability of uninformed pivotal voters ($\pi>0$). In this game, uninformed voters do not observe $\phi$ but do know the prior probability of the high-capacity policymaker ($p$). Suppose that $P_H$ chooses the policy according to the prior probability of the high-quality policy $\phi_H$. The choice of the prior probability is the mixed strategy of $P_H$. Since the low-capacity policymaker never proposes the high-quality policy, the prior probability of high-quality policy for voters is $\phi = p \cdot \phi_H$. 
+
+\par Conditional on the behavior the non-ideologue uninformed voters, following three equations represent the expected utility of $P_H$ under $\pi > 0$:
+\begin{align*}
+EU_{P_H}[v_U = 0] =& (1-\pi (\kappa_{a} + \kappa_{r})) (2 \kappa_{a} + \phi_H (1- 2(\kappa_{a} + \kappa_{r}))) \\ &+\pi (2 \kappa_{a} - \phi_H (\kappa_{a} + \kappa_{r}))  \\
+EU_{P_H}[v_U = 1, x_U = 1] =& (1-\pi) (2 \kappa_{a} + \phi_H (1- 2(\kappa_{a} + \kappa_{r})))  \\ &+ \pi (2 \kappa_{a} - \phi_H + 2 (1- (\kappa_{a} + \kappa_{r}))  \\
+EU_{P_H}[v_U = 1, x_U = 0] =& (1-\pi) (2 \kappa_{a} + \phi_H (1- 2(\kappa_{a} + \kappa_{r})))  \\ &+ \pi (2 \kappa_{a} - \phi_H) 
+\end{align*}
+
+\par Suppose that $\kappa_a + \kappa_r \geq 0.5$.  If $\pi=0$, $P_H$ chooses the low-quality policy for sure (i.e., $\phi^*_H=0 \Rightarrow \phi^* = p \cdot \phi^*_H = 0$). Non-ideologue uninformed voters choose rejection (i.e., $v_U=1$, $x_U=0$) for sure (Lemma 3). Under this condition, the expected utility of $P_H$ can be calculated as follows:
+\begin{align*}
+EU_{P_H}[\phi_H=0, v_U=1, x_U=0] = 2 \kappa_a
+\end{align*}
+\noindent If $\pi>0$, It may be possible for $P_H$ to influence the decision of non-ideologue uninformed voters by setting $\phi_H>0$. Following statements describes when and how $P_H$ can influence the decision of non-ideologue uninformed voters. Since the expected cost of policymaking is increasing in $\phi_H$, $P_H$ chooses the lowest possible value of $\phi_H$ that can ensure the particular behavior of uninformed voters.  
+\begin{align*}
+\text{If } p \geq \phi^*_{v1x0} &\text{ set } \phi_H = \phi^*_{v1x0}/p, \Rightarrow \phi = p \cdot \phi_H = \phi^*_{v1x0} \text{ so that } v^*_U = 0  \\
+\text{If } p \geq \phi^*_{v1x1} &\text{ set } \phi_H = \phi^*_{v1x1}/p \Rightarrow \phi = p \cdot \phi_H = \phi^*_{v1x1} \text{ so that } v^*_U = 1, x^*_U = 1 
+\end{align*}
+\noindent If $p \geq \phi^*_{v1x0}$, $P_H$ prefers $\phi_H = \phi^*_{v1x0}/p$ over $\phi_H = 0$ if and only if:
+\begin{align*}
+EU_{P_H}[\phi_H = \phi^*_{v1x0}/p, v_U = 0] &> EU_{P_H}[\phi_H=0, v_U=1, x_U=0] = 2 \kappa_a \\ 
+\pi (1-\kappa_a-\kappa_r)\left(\kappa_a - \frac{\phi^*_{v1x0}}{p}(\kappa_a + \kappa_r)\right) &> \frac{\phi^*_{v1x0}}{p} (\kappa_a + \kappa_r - 0.5)
+\end{align*}
+\noindent The above condition can be rewritten using the function $\Gamma$. The inequality holds if and only if $\Gamma$ is larger than zero:
+\begin{align*}
+0 <& \pi (1-\kappa_a-\kappa_r)\left(\kappa_a - \frac{\phi^*_{v1x0}}{p}(\kappa_a + \kappa_r)\right) -\frac{\phi^*_{v1x0}}{p}(\kappa_a + \kappa_r - 0.5)\\
+0 <& \pi ( (1-\kappa_a-\kappa_r)(\pi\kappa_a(p(1+\kappa_a-\kappa_r)-(\kappa_a+\kappa_r))+p\kappa_ad-(\kappa_a+\kappa_r)(d-c)) - \kappa_a(\kappa_a+\kappa_r-0.5) ) \\ &- (\kappa_a+\kappa_r-0.5)(d-c) = \Gamma
+\end{align*}
+\noindent By assumption, $\kappa_a \in [0,1)$, $\kappa_r \in [0,1)$, $1-\kappa_a-\kappa_r > 0$, $\pi \in (0,1]$, $\kappa_a+\kappa_r \geq 0.5$, $d>c\geq=0$, and $p \in [0,1]$. Therefore, $\Gamma$ is decreasing in $d$ and increasing in $c$ and $p$. Also, the inequality $\Gamma>0$ holds only when $\Gamma$ is increasing in $\pi$. 
+
+\par Replace $K = \kappa_a + \kappa_r \in [0.5,1)$ and $m = \kappa_a/(\kappa_a+\kappa_r) \in [0,1]$ in $\Gamma$. The previous inequality can be rewritten as follows:
+\begin{align*}
+0 <& \Gamma  \\
+0 <& \pi ( (1-K)(\pi mK(p(1+mK-(1-m)K)-K)+pmKd-K(d-c)) - mK(K-0.5) ) \\ &- (K-0.5)(d-c) \\
+0 <&\pi( K(1-K)(m(\pi(p-K(1+p(1-2m))) + pd) - (d-c)) - mK(K-0.5)) \\ &- (K-0.5)(d-c) = \Gamma_{1}\\
+0 <&\pi( m(K(1-K)(\pi(p-K(1+p(1-2m))) + pd) - K(K-0.5)) - K(1-K)(d-c) ) \\ &- (K-0.5)(d-c) = \Gamma_{2}
+\end{align*}
+\noindent Since $(K-0.5)\geq0$, $1+p(1-2m)\geq 0$ by assumption, $\Gamma_{1}$ implies $\Gamma$ is decreasing in $K$ and increasing in $K(1-K)$. Notice that $K(1-K)$ is maximized at $K=0.5$ and $K\geq0.5$ by assumption. This condition indicates that $\Gamma$ is weakly decreasing in $K$. Therefore, the inequality holds for sufficiently low $K$. 
+
+\par Also, notice that $(K-0.5)(d-c)\geq0$, $K(1-K)(d-c)\geq 0$, and $m\geq0$ in $\Gamma_2$. This quality implies that $K(1-K)(\pi(p-K(1+p(1-2m))) + pd) - K(K-0.5)>0$ must hold for the inequality to be satisfied. This condition implies that $\Gamma$ is increasing in $m$ whenever the inequality is satisfied. Therefore, the inequality holds for sufficiently high $m$.
+
+\par In sum, when $p \geq \phi^*_{v1x0}$ and $\kappa_a+\kappa_r \geq 0.5$, $P_H$ prefers $\phi_H=\phi^*_{v1x0}/p$ over $\phi_H=0$ for sufficiently high $p$, $\pi$, $m = \kappa_r/(\kappa_a+\kappa_r)$, and $c$ and sufficiently low $K = \kappa_a + \kappa_r$ and $d$. 
+
+\par If $p \geq \phi^*_{v1x1}$, $P_H$ prefers $\phi_H = \phi^*_{v1x1}/p$ over $\phi_H = 0$ if and only if:
+\begin{align*}
+EU_{P_H}[\phi_H = \phi^*_{v1x1}/p, v_U = 1, x_U = 1] &> EU_{P_H}[\phi_H=0, v_U=1, x_U=0] = 2 \kappa_a \\ 
+\pi \left(1-\frac{\phi^*_{v1x1}}{p}\right)(1-\kappa_a-\kappa_r) &> \frac{\phi^*_{v1x1}}{p} (\kappa_a + \kappa_r - 0.5) \\
+\pi (1-\kappa_a-\kappa_r) &> \frac{\phi^*_{v1x1}}{p} (\pi(1-\kappa_a-\kappa_r) + (\kappa_a + \kappa_r - 0.5)) \\
+\end{align*}
+\noindent The above inequality can be rewritten by using the function $\Theta$. The inequality holds if and only if $\Theta$ is larger than zero:
+\begin{align*}
+0 <& \pi (1-\kappa_a-\kappa_r) - \frac{\phi^*_{v1x1}}{p} (\pi(1-\kappa_a-\kappa_r) + (\kappa_a + \kappa_r - 0.5)) \\
+0 <& \pi( (1-\kappa_a-\kappa_r)(\pi (p\kappa_r-(1-p)(1-\kappa_a)) + pd - c) - (1-\kappa_a)(\kappa_a+\kappa_r-0.5)) \\ &- (\kappa_a+\kappa_r-0.5)c = \Theta 
+\end{align*}
+\noindent By assumption, $p\in[0,1]$, $1-\kappa_a-\kappa_r > 0$, $\pi \in (0,1]$, and $\kappa_a+\kappa_r \geq 0.5$. Therefore, $\Theta$ is increasing in $p$ and $d$ and decreasing in $c$. Also, the inequality $\Theta>0$ holds only when $\Theta$ is increasing in $\pi$. 
+
+\par Replace $K = \kappa_a + \kappa_r \in [0.5,1)$ and $m = \kappa_r/(\kappa_a+\kappa_r) \in [0,1]$ in $\Theta$. The previous inequality can be rewritten as follows:
+\begin{align*}
+0 <&\Theta \\
+0 <& \pi( (1-K)(\pi (p(1-m)K-(1-p)(1-mK)) + pd - c) - (1-mK)(K-0.5)) - (K-0.5)c\\ 
+%0 <& (1-K)(\pi (p(1-m)K-(1-p)(1-mK)) + pd - c) - \frac{K(\pi(1-m(K-0.5))+c)-0.5(c-\pi)}{\pi} \\
+0 <& K(1-K)\pi^2 (p(1-m)+m(1-p)) - K(\pi(1-m(K-0.5)-\pi(1-p)+pd)+c(1-\pi)) \\
+& - \pi(1.5-p(1+d)+c)+0.5c 
+\end{align*}
+\noindent Since $\pi \in (0,1]$, $p(1-m)+m(1-p)>0$, and $K\in[0.5,1)$, the function $K(1-K)\pi^2 (p(1-m)+m(1-p))$ is decreasing in $K$ (maximized at $0.5$). Also, since $m \in [0,1]$, $p>0.5=\phi^*_x$, $\pi \in (0,1]$, $d>0$, and $c\geq0$, $-K(\pi(1-m(K-0.5)-\pi(1-p)+pd)+c(1-\pi))$ is decreasing in $K$. All conditions imply the function $\Theta$ is decreasing in $K$. Therefore, the inequality holds for sufficiently low $K \geq 0.5$.
+
+\par Also, the following function extracts the part of $\Theta$ relevant to $m$. 
+\begin{align*}
+\Lambda = m \pi K( \pi(1-K)(1-2p)+(K-0.5))
+\end{align*}
+\noindent $\Lambda$ is increasing in $m$ if and only if: 
+\begin{align*}
+\pi(1-K)(1-2p)+(K-0.5) &> 0 \\
+K &>\frac{0.5 + \pi(2p-1)}{1 + \pi(2p-1)} \tag{Note:$2p-1\geq0$}
+\end{align*}
+\noindent Therefore, if $K >\frac{0.5 + \pi(2p-1)}{1 + \pi(2p-1)}$, the inequality $\Theta > 0$ holds for sufficiently high $m$. If $K \leq \frac{0.5 + \pi(2p-1)}{1 + \pi(2p-1)}$, the inequality holds for sufficiently low $m$. 
+
+\par In sum, when $p \geq \phi^*_{v1x1}$ and $\kappa_a+\kappa_r \geq 0.5$, $P_H$ prefers $\phi_H=\phi^*_{v1x1}/p$ over $\phi_H=0$ for sufficiently high $p$, $\pi$, and $d$ and sufficiently low $K = \kappa_a + \kappa_r$ and $c$. If $K >\frac{0.5 + \pi(2p-1)}{1 + \pi(2p-1)}$, this condition holds for sufficiently high $m = \kappa_r/(\kappa_a+\kappa_r)$. If $K \leq \frac{0.5 + \pi(2p-1)}{1 + \pi(2p-1)}$, this condition holds for sufficiently low $m = \kappa_r/(\kappa_a+\kappa_r)$.
+
+\par If the abstention interval does not exist for non-ideologue uninformed voters (i.e., $\phi^*_{v1x0}=\phi^*_{v1x1}=\phi^*_x=0.5$) and $p \geq 0.5$, $P_H$ prefers $\phi_H = \phi^*_{v1x1}/p$ over $\phi_H = 0$ if and only if:
+\begin{align*}
+EU_{P_H}[\phi_H = 1/2p, v_U = 1, x_U = 1] &> EU_{P_H}[\phi_H=0, v_U=1, x_U=0] = 2 \kappa_a \\ 
+%\pi \left(1-\frac{1}{2p}\right)(1-\kappa_a-\kappa_r) &> \frac{1}{2p} (\kappa_a + \kappa_r - 0.5) \\
+\pi (1-\kappa_a-\kappa_r) &> \frac{1}{2p} (\pi(1-\kappa_a-\kappa_r) + (\kappa_a + \kappa_r - 0.5)) \\
+p &> \frac{1}{2}+ \frac{\kappa_a + \kappa_r - 0.5}{2\pi(1-\kappa_a-\kappa_r)}
+\end{align*}
+\noindent The above function implies the inequality holds for sufficiently high $p$ and $\pi$ and sufficiently low $K = \kappa_a + \kappa_r$.
+
+% \par Lastly, suppose that both $EU_{P_H}[\phi_H = \phi^*_{v1x0}/p, v_U = 0]$ and  $EU_{P_H}[\phi_H=\phi^*_{v1x1}, v_U=1, x_U=1]$ are larger than $EU_{P_H}[\phi_H = 0, v_U = 1, x_U=0]$.Then, $P_H$ prefers $\phi_H=\phi^*_{v1x1}$ over $\phi_H=\phi^*_{v1x0}$ if and only if:   
+% \begin{align*}
+% EU_{P_H}[\phi_H = \phi^*_{v1x0}/p, v_U = 0] &> EU_{P_H}[\phi_H=0, v_U=1, x_U=0]
+% \end{align*}
+
+\hfill $\blacksquare$
+
+\subsubsection{The Proof of Proposition 6}
+
+\par It directly follows from the proof of Proposition 5 that:
+\begin{itemize}
+	\item $EU_{P_H}[\phi_H = \phi^*_{v1x0}/p, v_U = 0] > EU_{P_H}[\phi_H=0, v_U=1, x_U=0]=2\kappa_a$ occurs under sufficiently low $d$ and sufficiently high $c$. 
+	\item $EU_{P_H}[\phi_H = \phi^*_{v1x0}/p, v_U = 1, x_U = 1] > EU_{P_H}[\phi_H=0, v_U=1, x_U=0]=2\kappa_a$ occurs under sufficiently high $d$ and sufficiently low $c$.
+\end{itemize}
+\noindent The above two facts imply that $EU_{P_H}[\phi_H = \phi^*_{v1x0}/p, v_U = 1, x_U = 1] > EU_{P_H}[\phi_H=0, v_U=0]$ occurs under sufficiently high $d$ and sufficiently low $c$.
+
+\par Also, it is shown in Proposition 1 that:
+\begin{itemize}
+	\item The discouraged abstention (i.e., $\phi^*_{v1x1}$ is decreasing in $\pi$ and $\phi^*_{v1x1}$ is increasing in $\pi$) is available under sufficiently low $d$ and/or sufficiently high $c$. 
+	\item The delegatory abstention (i.e., $\phi^*_{v1x1}$ is increasing in $\pi$ and $\phi^*_{v1x1}$ is decreasing in $\pi$) is available under sufficiently high $d$ and/or sufficiently low $c$.
+\end{itemize}
+
+\par Summarizing above facts, holding other parameters constant, sufficiently low $d$ and sufficiently high $c$ make both $\phi^*_H = \phi^*_{v1x0}$ and discouraged abstention available; sufficiently high $d$ and sufficiently low $c$ make both $\phi^*_H = \phi^*_{v1x1}$ and delegatory abstention available. 
+
+\hfill $\blacksquare$
+
+\subsubsection{The Proof of Proposition 7}
+
+\par Suppose that $\kappa_a + \kappa_r \geq 0.5$ and abstention is not allowed. If $\pi=0$, $P_H$ chooses the low-quality policy for sure (i.e., $\phi^*_H=0 \Rightarrow \phi^* = p \cdot \phi^*_H = 0$). Non-ideologue uninformed voters choose rejection (i.e., $v_U=1$, $x_U=0$) for sure (Lemma 3). Under this condition, the expected utility of $P_H$ can be calculated as follows:
+\begin{align*}
+EU_{P_H}[\phi_H=0, v_U=1, x_U=0] = 2 \kappa_a
+\end{align*}
+\noindent If $\pi>0$, It may be possible for $P_H$ to influence the decision of non-ideologue uninformed voters by setting $\phi_H>0$. Following statements describes when and how $P_H$ can influence the decision of non-ideologue uninformed voters. Since the expected cost of policymaking is increasing in $\phi_H$, $P_H$ chooses the lowest possible value of $\phi_H$ that can ensure the particular behavior of uninformed voters.  
+\begin{align*}
+\text{If } p \geq \phi^*_{x} &\text{ set } \phi_H = \phi^*_{x}/p, \Rightarrow \phi = p \cdot \phi_H = \phi^*_{x} \text{ so that } v^*_U = 1, x^*_U = 1 
+\end{align*}
+\noindent If $p \geq \phi^*_{x}$, $P_H$ prefers $\phi_H = \phi^*_{x}/p$ over $\phi_H = 0$ if and only if:
+\begin{align*}
+EU_{P_H}[\phi_H = \phi^*_{x}/p, v_U = 0] &> EU_{P_H}[\phi_H=0, v_U=1, x_U=0] = 2 \kappa_a \\ 
+\pi (1-\kappa_a-\kappa_r)\left(\kappa_a - \frac{\phi^*_{x}}{p}(\kappa_a + \kappa_r)\right) &> \frac{\phi^*_{x}}{p} (\kappa_a + \kappa_r - 0.5) \\
+\pi (1-\kappa_a-\kappa_r)\left(\kappa_a - \frac{1}{2p}(\kappa_a + \kappa_r)\right) &> \frac{1}{2p} (\kappa_a + \kappa_r - 0.5)
+\end{align*}
+
+\hfill $\blacksquare$
+
+\subsubsection{The Proof of Proposition 8}
+
+\par To start with, the expected welfare of voters $I$ and $U$ under $\phi^*_H=0=\phi^*$ and thus $v^*_U=1$ and $x^*_U=0$ can be calculated as follows:
+
+\begin{align*}
+	Eu_I[\phi^*_H=0] =& \kappa_a \cdot \kappa_a [ A - 1 + d - c] + \\
+	&\kappa_a \cdot \kappa_r [ \pi(R-1) + d - c] + \\
+	&\kappa_a \cdot (1-\kappa_a-\kappa_r) [ \pi(-1) + d - c] + \\
+	&\kappa_r \cdot \kappa_a [ (1-\pi)(A-1) + d - c] + \\
+	&\kappa_r \cdot \kappa_r [ d - c ] + \\
+	&\kappa_r \cdot (1-\kappa_a-\kappa_r) [ d - c ] + \\
+	&(1-\kappa_a-\kappa_r) \cdot \kappa_a [ (1-\pi)(A-1) + d - c] + \\
+	&(1-\kappa_a-\kappa_r) \cdot \kappa_r [ d - c ] + \\
+	&(1-\kappa_a-\kappa_r) \cdot (1-\kappa_a-\kappa_r) [ d - c ] 
+\end{align*}
+
+\begin{align*}
+	Eu_U[\phi^*_H=0] =& \kappa_a \cdot \kappa_a [ A - 1 + d - c] + \\
+	&\kappa_a \cdot \kappa_r [ \pi(A-1) + d - c] + \\
+	&\kappa_a \cdot (1-\kappa_a-\kappa_r) [ \pi(A-1) + d - c] + \\
+	&\kappa_r \cdot \kappa_a [ (1-\pi)(R-1) + d - c] + \\
+	&\kappa_r \cdot \kappa_r [ d - c ] + \\
+	&\kappa_r \cdot (1-\kappa_a-\kappa_r) [ d - c ] + \\
+	&(1-\kappa_a-\kappa_r) \cdot \kappa_a [ (1-\pi)(-1) + d - c] + \\
+	&(1-\kappa_a-\kappa_r) \cdot \kappa_r [ d - c ] + \\
+	&(1-\kappa_a-\kappa_r) \cdot (1-\kappa_a-\kappa_r) [ d - c ] 
+\end{align*}
+
+%\noindent If $\phi^*_H = \phi^*_{v1x0}/p \Rightarrow \phi^* = \phi^*_{v1x0}$ and thus $v^*_U=0$:
+%\begin{align*}
+% 	Eu_U[\phi^*_H = \phi^*_{v1x0}/p] =& \kappa_a \cdot \kappa_a [ A + 2\phi^*_{v1x0} - 1 + d - c] + \\
+% 	&\kappa_a \cdot \kappa_r [ \pi(A+2\phi^*_{v1x0}-1) + d - c] + \\
+% 	&\kappa_a \cdot (1-\kappa_a-\kappa_r) [ \pi(A+2\phi^*_{v1x0}-1) + (1-\pi)\phi^*_{v1x0}(A+1) + d - c] + \\
+% 	&\kappa_r \cdot \kappa_a [ (1-\pi)(R+2\phi^*_{v1x0}-1) + d - c] + \\
+% 	&\kappa_r \cdot \kappa_r [ d - c ] + \\
+% 	&\kappa_r \cdot (1-\kappa_a-\kappa_r) [ (1-\pi)\phi^*_{v1x0}(R+1) + d - c] + \\
+% 	&(1-\kappa_a-\kappa_r) \cdot \kappa_a [ 2\phi^*_{v1x0}-1 ] + \\
+% 	&(1-\kappa_a-\kappa_r) \cdot \kappa_r [ 0 ] + \\
+% 	&(1-\kappa_a-\kappa_r) \cdot (1-\kappa_a-\kappa_r) [ \phi^*_{v1x0} ] 
+% \end{align*}
+
+\noindent Then, if $\phi^*_H = \phi^*_{v1x1}/p \Rightarrow \phi^* = \phi^*_{v1x1}$ and thus $v^*_U=1$ and $x^*_U=1$:
+
+\begin{align*}
+	Eu_I[\phi^*_H = \phi^*_{v1x1}/p] =& \kappa_a \cdot \kappa_a [ A + 2\phi^*_{v1x1} - 1 + d - c] + \\
+	&\kappa_a \cdot \kappa_r [ \pi(R+2\phi^*_{v1x1}-1) + d - c] + \\
+	&\kappa_a \cdot (1-\kappa_a-\kappa_r) [ \pi(2\phi^*_{v1x1}-1) + (1-\pi)\phi^*_{v1x1} + d - c] + \\
+	&\kappa_r \cdot \kappa_a [ (1-\pi)(A+2\phi^*_{v1x1}-1) + d - c] + \\
+	&\kappa_r \cdot \kappa_r [ d - c ] + \\
+	&\kappa_r \cdot (1-\kappa_a-\kappa_r) [ (1-\pi)\phi^*_{v1x1} + d - c] + \\
+	&(1-\kappa_a-\kappa_r) \cdot \kappa_a [ A + 2\phi^*_{v1x1}-1 + d - c] + \\
+	&(1-\kappa_a-\kappa_r) \cdot \kappa_r [ \pi (R+2\phi^*_{v1x1}-1) + d - c] + \\
+	&(1-\kappa_a-\kappa_r) \cdot (1-\kappa_a-\kappa_r) [ \pi (2\phi^*_{v1x1}-1)+ (1-\pi)\phi^*_{v1x1} + d - c ] 
+\end{align*}
+
+\begin{align*}
+	Eu_U[\phi^*_H = \phi^*_{v1x1}/p] =& \kappa_a \cdot \kappa_a [ A + 2\phi^*_{v1x1} - 1 + d - c] + \\
+	&\kappa_a \cdot \kappa_r [ \pi(A+2\phi^*_{v1x1}-1) + d - c] + \\
+	&\kappa_a \cdot (1-\kappa_a-\kappa_r) [ \pi(A+2\phi^*_{v1x1}-1) + (1-\pi)\phi^*_{v1x1}(A+1) + d - c] + \\
+	&\kappa_r \cdot \kappa_a [ (1-\pi)(R+2\phi^*_{v1x1}-1) + d - c] + \\
+	&\kappa_r \cdot \kappa_r [ d - c ] + \\
+	&\kappa_r \cdot (1-\kappa_a-\kappa_r) [ (1-\pi)\phi^*_{v1x1}(R+1) + d - c] + \\
+	&(1-\kappa_a-\kappa_r) \cdot \kappa_a [ 2\phi^*_{v1x1}-1 + \phi^*_{v1x1} d - c] + \\
+	&(1-\kappa_a-\kappa_r) \cdot \kappa_r [ \pi (2\phi^*_{v1x1}-1) + \phi^*_{v1x1} d - c] + \\
+	&(1-\kappa_a-\kappa_r) \cdot (1-\kappa_a-\kappa_r) [ \pi (2\phi^*_{v1x1}-1)+ (1-\pi)\phi^*_{v1x1} + \phi^*_{v1x1} d - c ] 
+\end{align*}
+
+\par From the above, the change in voter welfare in response to the accountability improvement from from $\phi^*_H=0$ to $\phi^*_H=\phi^*_{v1x1}$ can be calculated as follows:
+
+\begin{align*}
+	Eu_I[\phi^*_H = \phi^*_{v1x1}/p] &- Eu_I[\phi^*_H = 0]\\
+	=& \kappa_a \cdot \kappa_a [ 2\phi^*_{v1x1}] + \\
+	&\kappa_a \cdot \kappa_r [ 2 \pi \phi^*_{v1x1} ] + \\
+	&\kappa_a \cdot (1-\kappa_a-\kappa_r) [ 2 \pi \phi^*_{v1x1} + (1-\pi)\phi^*_{v1x1}] + \\
+	&\kappa_r \cdot \kappa_a [ 2(1-\pi)\phi^*_{v1x1} ] + \\
+	&\kappa_r \cdot \kappa_r [ 0 ] + \\
+	&\kappa_r \cdot (1-\kappa_a-\kappa_r) [ (1-\pi)\phi^*_{v1x1}] + \\
+	&(1-\kappa_a-\kappa_r) \cdot \kappa_a [ \pi (A-1) + 2\phi^*_{v1x1} ] + \\
+	&(1-\kappa_a-\kappa_r) \cdot \kappa_r [ \pi (R+2\phi^*_{v1x1}-1)  ] + \\
+	&(1-\kappa_a-\kappa_r) \cdot (1-\kappa_a-\kappa_r) [ \pi (2\phi^*_{v1x1}-1) + (1-\pi)\phi^*_{v1x1} ] 
+\end{align*}
+
+\noindent It diretly follows from the above equation that $Eu_I[\phi^*_H = \phi^*_{v1x1}/p] - Eu_I[\phi^*_H = 0]$ is increasing in $\phi^*_{v1x1}$. Since $\phi^*_{v1x1}$ under $\beta_U=0$ is decreasing in $d$ (Lemma 3), $Eu_I[\phi^*_H = \phi^*_{v1x1}/p] - Eu_I[\phi^*_H = 0]$ is decreasing in $d$.
+
+\par For uninformed voters:
+
+\begin{align*}
+	Eu_U[\phi^*_H = \phi^*_{v1x1}/p] &- Eu_U[\phi^*_H = 0] \\
+	=& \kappa_a \cdot \kappa_a [ 2\phi^*_{v1x1}] + \\
+	&\kappa_a \cdot \kappa_r [ 2 \pi \phi^*_{v1x1} ] + \\
+	&\kappa_a \cdot (1-\kappa_a-\kappa_r) [ 2 \pi \phi^*_{v1x1} + (1-\pi)\phi^*_{v1x1}(A+1)] + \\
+	&\kappa_r \cdot \kappa_a [ 2(1-\pi)\phi^*_{v1x1} ] + \\
+	&\kappa_r \cdot \kappa_r [ 0 ] + \\
+	&\kappa_r \cdot (1-\kappa_a-\kappa_r) [ (1-\pi)\phi^*_{v1x1}(R+1)] + \\
+	&(1-\kappa_a-\kappa_r) \cdot \kappa_a [ \pi (-1) + 2\phi^*_{v1x1} - (1-\phi^*_{v1x1})d ] + \\
+	&(1-\kappa_a-\kappa_r) \cdot \kappa_r [ \pi (2\phi^*_{v1x1}-1) - (1-\phi^*_{v1x1})d ] + \\
+	&(1-\kappa_a-\kappa_r) \cdot (1-\kappa_a-\kappa_r) [ \pi (2\phi^*_{v1x1}-1) + (1-\pi)\phi^*_{v1x1} - (1-\phi^*_{v1x1})d ] \\
+	=& \kappa_a \cdot \kappa_a [ 2\phi^*_{v1x1}] + \kappa_a \cdot \kappa_r [ 2 \pi \phi^*_{v1x1} ] + \\
+	&\kappa_a \cdot (1-\kappa_a-\kappa_r) [ 2 \pi \phi^*_{v1x1} + (1-\pi)\phi^*_{v1x1}(A+1)] + \\
+	&\kappa_r \cdot \kappa_a [ 2(1-\pi)\phi^*_{v1x1} ] + \\
+	&(1-\kappa_a-\kappa_r) \cdot \kappa_a [ \pi (-1) + 2\phi^*_{v1x1} - (1-\phi^*_{v1x1})d ] + \\
+	&(1-\kappa_a-\kappa_r) \cdot (1-\kappa_a-\kappa_r) [ \pi (2\phi^*_{v1x1}-1) + (1-\pi)\phi^*_{v1x1} - (1-\phi^*_{v1x1})d ] + \\
+	&(1-\kappa_a-\kappa_r) \cdot \kappa_r [ \{ \underline{(1-\pi)R + 1 + \pi} \} \phi^*_{v1x1} - \pi - (1-\phi^*_{v1x1})d ]
+\end{align*}
+
+\par If the underlined part of the above equation is positive, it directly follows from the above equation that $Eu_U[\phi^*_H = \phi^*_{v1x1}/p] - Eu_U[\phi^*_H = 0]$ is increasing in $\phi^*_{v1x1}$ (and decreasing in $d$). To make the underlined part positive, it must be the case that:
+
+\begin{align*}
+	(1-\pi)R + 1 + \pi &\geq 0 \\
+	R &\geq - \frac{1 + \pi}{1-\pi}
+\end{align*}
+
+\hfill $\blacksquare$
+
+% calculate the non-ideologue voter welfare, we need to know the voting decision ($v_g$ and $x_g$) of non-ideologue informed and uninformed voters. First, The prior probability of high-quality policy can be calculated by $\phi = p \phi^*_H$. The following equation represents the expected policy utility before the election (i.e., $ \beta_g=0$):
+% \begin{align*}
+% E(q) =& p \phi^*_H - (1- p \phi^*_H) \notag \\
+% =& 2 p \phi^*_H - 1
+% \end{align*}
+% If ideologue voters or non-ideologue uninformed voters are pivotal and approve the policy proposal, the accepted proposal is high-quality with probability $p \phi^*_H$ and its expected quality stays at $E(q)=2 p \phi^*_H - 1$. If non-ideologue informed voters are pivotal and approve the proposal, the accepted proposal is high-quality for sure thus its expected quality is $E(q)=1$. Denote temporarily the decision of non-ideologue uninformed voters $v_U, x_U \in \{0, 1\}$. Using the above results, the expected policy utility of voters ($EPU$) can be calculated by the following equation: 
+% \begin{align*}
+% EPU =&  ( \kappa_{a} + \pi (1-\kappa_{r}-\kappa_{a})v_U x_U)(2 p \phi^*_H - 1) \notag \\
+% &+ (1-\pi v_U) (1-\kappa_{r}-\kappa_{a}) p \phi^*_H
+% \end{align*}
+
+% \par Apart from the policy utility, voters receive the expressive benefit ($d$) for the correct voting choice and pay the voting cost ($c$) for participating in the election. Non-ideologue informed voters always participate in the election and make a correct voting choice (Lemma 2) thus their utility for this part is $d - c$. On the other hand, non-ideologue uninformed voters change their action depending on the electoral environment. If they approve the proposal, their expected utility from the expressive benefit and voting cost is $d p \phi^*_H   - c $. Similarly, if they reject, the same quantity is $d (1- p \phi^*_H)   - c$. If they abstain, they neither receive expressive benefit nor pay the voting cost. The above conditions imply the expected utility regarding the expressive benefit and voting cost of non-ideologue uninformed voters ($EECU[g=U]$) can be represented in the following equation:   
+% \begin{align*}
+% EECU[g=U] =& d (v_U (1 - ( x_U(1-p \phi^*_H)  + (1-x_U)p\phi^*_H ) ) )- c v_U \\
+% =& d (v_U (1 - ( x_U + p\phi^*_H ( 1 - 2 x_U ) ) ) )- c v_U 
+% \end{align*}
+
+% \par Combining the policy utility, expressive benefit and voting cost, the total expected utility is $EU[g=I] = EPU + d - c$ for non-ideologue informed voters and $EU[g=U] = EPU + EECU[g=U]$ for non-ideologue uninformed voters. Using $\psi$, combined expected voter welfare ($EVW$) can be represented in the following equation:\footnote{Technically, no voters have prior knowledge of $\psi$ (they only know $\gamma(\cdot)$). $\psi$ is included in the equation to find the condition that is satisfied for all possible $\psi$.}
+% \begin{align*}
+% EVW =&  EPU + (1-\psi)(d - c) + \psi EECU[g=U] \\
+% =& ( \kappa_{a} + \pi (1-\kappa_{r}-\kappa_{a})v_U x_U)(2 p \phi^*_H - 1) \\
+% &+ (1-\pi v_U) (1-\kappa_{r}-\kappa_{a}) p \phi^*_H \\
+% &+ d ( 1 - \psi( v_U ( x_U + p\phi^*_H ( 1 - 2 x_U )) + 1 ) ) - c ( 1 - \psi(1-v_U) )  
+% \end{align*}
+
+% \par Suppose that $\phi^*_H=0$. Even uninformed voters know that the policy proposal is of low-quality, this condition implies that all non-ideologue voters vote for rejection for sure and all voters receive the expressive utility:
+% \begin{align*}
+% EVW[\phi^*_H=0] = - \kappa_a + d - c
+% \end{align*}
+
+% \par Suppose that $\phi^*_H=\phi^*_{v1x0}/p$. From Proposition 5, this condition implies $\phi^*=\phi^*_{v1x0}$ and all non-ideologue uninformed voters abstain from the election (i.e., $v_U=0$). Therefore, the expected voter welfare under this condition can be calculated as follows:
+% \begin{align*}
+% EVW[\phi^*_H=\phi^*_{v1x0}/p] =& \kappa_a (2\phi^*_{v1x0}-1) + (1-\kappa_a-\kappa_r)\phi^*_{v1x0} + (d-c)(1-\psi) \\
+% \end{align*}
+% \noindent Then, $EVW[\phi^*_H=\phi^*_{v1x0}/p] \geq EVW[\phi^*_H=0]$ if and only if:
+% \begin{align*}
+% \phi^*_{v1x0} (2\kappa_a + (1-\kappa_a-\kappa_r)) &\geq (d-c) \psi \\
+% \frac{\pi \kappa_{a} + d - c}{\pi (1 + \kappa_{a}-\kappa_{r} ) + d} (1+\kappa_a-\kappa_r) &\geq (d-c) \psi \\
+% %(\pi \kappa_{a} + d - c) (1+\kappa_a-\kappa_r) &\geq (\pi (1 + \kappa_{a}-\kappa_{r} ) + d)(d-c) \psi \\
+% \pi \kappa_{a} (1+\kappa_a-\kappa_r) &\geq (d-c) ( (\pi (1 + \kappa_{a}-\kappa_{r} ) + d) \psi - (1+\kappa_a-\kappa_r) )
+% \end{align*}
+% \noindent Since $EVW[\phi^*_H=\phi^*_{v1x0}/p]$ is strictly decreasing in $\psi$, the above condition holds for all possible $\psi \in [0,1]$ if and only if:
+% \begin{align*}
+% \pi \kappa_{a} (1+\kappa_a-\kappa_r) &\geq (d-c) ( (\pi (1 + \kappa_{a}-\kappa_{r} ) + d) - (1+\kappa_a-\kappa_r) ) \\
+% \pi \kappa_{a} (1+\kappa_a-\kappa_r) &\geq (d-c) ( d - (1+\kappa_a-\kappa_r)(1-\pi) ) 
+% \end{align*}
+% \noindent By assumption, $\pi \kappa_{a} (1+\kappa_a-\kappa_r) \geq 0$ and $d-c>0$. Therefore, the above inequality always holds if:
+% \begin{align*}
+% d \leq (1+\kappa_a-\kappa_r)(1-\pi) 
+% \end{align*}
+% \noindent If $d > (1+\kappa_a-\kappa_r)(1-\pi)$, $(d-c) ( d - (1+\kappa_a-\kappa_r)(1-\pi) )$ is increasing in $d$. Therefore, $EVW[\phi^*_H=\phi^*_{v1x0}/p] \geq EVW[\phi^*_H=0]$ is violated if and only if $d$ is sufficiently high. 
+
+% \par Suppose that $\phi^*_H=\phi^*_{v1x1}/p$. From Proposition 5, this condition implies that $\phi^*=\phi^*_{v1x1}$ and all non-ideologue uninformed voters vote for approval in the election (i.e., $v_U=1$, $x_U=1$). Therefore, the expected voter welfare under this condition can be calculated as follows:
+% \begin{align*}
+% EVW[\phi^*_H=\phi^*_{v1x1}/p] =& (\kappa_a + \pi(1-\kappa_a-\kappa_r))(2\phi^*_{v1x1}-1) + (1-\pi)(1-\kappa_a-\kappa_r)\phi^*_{v1x1} \\ &+ d - c - d \psi (1-\phi^*_{v1x1})
+% \end{align*}
+% \noindent Then, $EVW[\phi^*_H=\phi^*_{v1x1}/p] \geq EVW[\phi^*_H=0]$ if and only if:
+% \begin{align*}
+% 2\kappa_a\phi^*_{v1x1} + \pi(1-\kappa_a-\kappa_r)(2\phi^*_{v1x1}-1) + (1-\pi)(1-\kappa_a-\kappa_r)\phi^*_{v1x1} &\geq d \psi (1-\phi^*_{v1x1}) \\
+% %2\kappa_a\phi^*_{v1x1} + (1-\kappa_a-\kappa_r)( \pi(2\phi^*_{v1x1}-1) + (1-\pi)\phi^*_{v1x1}) &\geq d \psi (1-\phi^*_{v1x1}) \\
+% 2\kappa_a\phi^*_{v1x1} + (1-\kappa_a-\kappa_r)( \phi^*_{v1x1} (1+\pi) - \pi ) &\geq d \psi (1-\phi^*_{v1x1}) \\
+% \frac{2\kappa_a\phi^*_{v1x1} + (1-\kappa_a-\kappa_r)( \phi^*_{v1x1} (1+\pi) - \pi )}{d (1-\phi^*_{v1x1})} &\geq \psi  
+% \end{align*}
+% \noindent Since $EVW[\phi^*_H=\phi^*_{v1x1}/p]$ is strictly decreasing in $\psi$, the above condition holds for all possible $\psi \in [0,1]$ if and only if:
+% \begin{align*}
+% \frac{2\kappa_a\phi^*_{v1x1} + (1-\kappa_a-\kappa_r)( \phi^*_{v1x1} (1+\pi) - \pi )}{d (1-\phi^*_{v1x1})} &\geq 1   
+% \end{align*}
+% \noindent By assumption, $\phi^*_{v1x1}$ is weakly decreasing in $d$. Also, since $1-\kappa_a-\kappa_r>0$ and $\kappa_a\geq0$, the right-hand side of the above inequality is decreasing in $\phi^*_{v1x1}$. Therefore, the right-hand side of the inequality is decreasing in $d$ and the inequality holds for sufficiently low $d$.
+
+% \par In sum, both $EVW[\phi^*_H=\phi^*_{v1x0}/p] \geq EVW[\phi^*_H=0]$ and $EVW[\phi^*_H=\phi^*_{v1x1}/p] \geq EVW[\phi^*_H=0]$ hold for any possible $\psi$ (therefore any distribution $\gamma(\cdot)$) if $d$ is sufficiently low.
+
+% \hfill $\blacksquare$  
+
+\subsection{Appendix C: Simulation Codes for Comparative Statics}
+
+\par \nolinkurl{Kato2019thlo_simulations.R} contains the R codes to replicate Figure 2, 3, and 4. \nolinkurl{Kato2019thlo_simulations_out.Rnw} can be used to create the figure outputs that are used in the main text through \nolinkurl{knitr}.
+
+%TC:endignore
+
+%\clearpage
+%\pagenumbering{arabic}
+%\setcounter{page}{35}

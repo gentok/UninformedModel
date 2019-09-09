@@ -1,0 +1,432 @@
+%%% CLASS SETTING %%%
+\documentclass[letterpaper, 12pt]{article}
+\usepackage{natbib}
+\usepackage[margin=1in]{geometry} % sets page layout 
+\bibpunct[, ]{(}{)}{,}{a}{}{,} % sets the punctuation of the bibliography entires.
+\usepackage{authblk} 
+\usepackage{url}
+
+%%% Paper Information %%%
+\title{When Strategic Uninformed Abstention Improves Democratic Accountability} 
+\author{Gento Kato\thanks{Gento Kato is a PhD Candidate, Department of Political Science, University of California, Davis, One Shields Avenue, Davis, CA 95616 USA (gkato@ucdavis.edu). The earlier version of this paper was presented at the 77th Annual Midwest Political Science Association Conference, Palmer House Hilton, Chicago, IL, April 5, 2019. The latest version of this paper is available from \texttt{https://github.com/gentok/UninformedModel}}}
+\affil{University of California, Davis}
+\date{Last Update: September 9, 2019}
+
+% Other Packages/Settings
+\usepackage{amsfonts, amsmath, amssymb, bm} %Math fonts and symbols
+\usepackage[format=hang, justification=centering]{caption}
+\usepackage{dcolumn, multirow} % decimal-aligned columns, multi-row cells
+\usepackage{graphicx, subfigure, float} % graphics commands
+\usepackage[colorlinks=true, citecolor=blue]{hyperref}
+\usepackage{setspace}% allows toggling of double/single-spacing
+\doublespace % set document spacing to double
+%\usepackage{endnotes}
+%\let\footnote=\endnote
+% Draw figure
+\usepackage{tikz}
+\usetikzlibrary{calc}
+% Add note to Figures
+\newcommand{\floatnote}[1]{\vspace{\abovecaptionskip}\caption*{\textbf{Note:} #1}\vspace{-\abovecaptionskip}}
+% Change section font
+\usepackage{sectsty} 
+\sectionfont{\fontsize{12}{12}\selectfont} 
+\subsectionfont{\fontsize{12}{12}\selectfont} 
+\subsubsectionfont{\fontsize{12}{12}\selectfont} 
+% Move figures to the last
+%\usepackage[figuresonly]{endfloat} %nomarkers, to avoid markers
+\renewcommand{\listoffigures}{} % but suppress these lists
+
+\begin{document}
+    
+    \begin{titlepage}
+    
+    \bibliographystyle{apsr}
+    \maketitle
+    \thispagestyle{empty}
+    
+    \clearpage
+    \thispagestyle{empty}
+    
+    \begin{abstract}
+        The recent development in formal studies of election makes two sets of findings that question the custom to treat voter information as a prerequisite for competent democratic decision-making. One argues that uninformed abstention is an effective strategy to approximate informed electoral outcome and another suggests that uninformed voters may motivate strategic political elites to improve accountability. This article bridges and extends two findings by analyzing strategic incentives in the comprehensive voting model with abstention and its connection with electoral accountability. The proposed model offers a contextual explanation for two contrasting logic in uninformed abstention ---delegation and discouragement--- and shows that uninformed voting sometimes improves accountability. Furthermore, uninformed abstention is more effective in generating democratically preferred outcome under delegatory than discouraged context. The results reveal that the context and logic of abstention have a significant implication on the competence of low-information voting.
+    \end{abstract}
+    \end{titlepage}
+    
+    \clearpage
+    
+    \par Empirical studies of voter competence often assume political information as the prerequisite for voters to make democratically competent decisions. As a result, many studies equate the evidence of ill-informed public with a dysfunctional democracy \citep{Converse1964thna, Dellicarpini1996wham, Bartels1996unvo, Somin1998voig, Achen2016defo}. Even in studies that do not consider information as the necessary condition for competent decisions, it is commonly assumed that acting \textit{as-if} informed is the end goal for uninformed voters to be democratically competent \citep{Lupia1994shve, Lupia2016unwh, Popkin1994thre, Boudreau2009clth}. However, the collection of findings from formal studies suggest that after incorporating strategic incentives in the election, \textit{uninformed voters} (who do not emulate informed decisions) \textit{do not necessarily hurt, and can even improve, the quality of democratic decision-making}. 
+
+    \par Two major lines of formal argument challenge the assumption of incompetent uninformed voters. First, ideologically-neutral uninformed voters may abstain strategically to delegate the electoral outcome to the hands of ideologically-neutral informed voters \citep{Feddersen1996thsw,Feddersen1999abin}. Those studies show that ``informed'' electoral outcome does not need to be a product of fully-informed electorates. Second, low-information voting may induce the strategic reaction of political elites that benefit voters as a whole \citep{Ashworth2014isvo, Prato2016thvo}. Those studies suggest that uninformed voters have the potential to motivate elites and improve democratic accountability. Both arguments imply that it is misleading to equate information with vote competence, but under significantly different modelling approaches.
+    
+    \par This article thus aims to bridge previous formal findings on low-information voter competence by exploring strategic incentives in both uninformed abstention and elite accountability. At the baseline, I construct a simple model of referendum election with abstention. There are two representative groups of voters: informed and uninformed. One group of voters is randomly drawn by nature to be pivotal and determines the electoral outcome. In the election, voters first choose to participate or abstain. If participating, they can approve or reject the new policy proposal that replaces the status quo policy. The policy preference has two dimensions, the \textit{ideology} of voters and policy \textit{quality}. While each voter group has a prior ideology of liking or disliking the policy proposal, policy quality commonly benefits both voter groups. Informed and uninformed voters are different in their knowledge of policy quality. Informed voters know, while uninformed voters are uncertain, if the quality is high or low.
+    
+    \par While under a vastly simplified, less demanding setting, basic construct of the baseline model follows that of \cite{Feddersen1996thsw}. In the equilibrium election, highly ideological voters (denoted as \textit{ideologues} in the following) always participate, and vote based on ideology. Among non-ideologues, informed voters always participate, and vote based on policy quality. Non-ideologue uninformed voters are the only ones who may abstain from the election. Furthermore, to generalize the costless and instrumental voting model proposed in \cite{Feddersen1996thsw,Feddersen1999abin}, my model incorporates both the non-instrumental expressive benefit and minimal cost of voting. 
+
+    \par The central results of the baseline model (Proposition 1) identify three mutually-exclusive contexts where the lack of information can lead to abstention: \textit{discouraged}, \textit{delegatory}, and mixed. Under discouraged abstention context, uninformed voters abstain when they fail to overcome the cost of voting due to a combination of uncertainty in policy quality and low pivotality. This abstention logic is consistent with the conventional decision-theoretic model of voting participation \citep{Downs1957anec, Riker1968thof, Matsusaka1995exvo}. Under delegatory abstention context, uninformed voters abstain when they benefit from informed voters monopolizing the electoral decision. When their pivotality in the election is high, independent of the voting cost, uninformed voters are better off abstaining strategically to ensure that informed voters determine the electoral outcome than participating and making uncertain vote choices (Proposition 2). This abstention logic follows \cite{Feddersen1996thsw, Feddersen1999abin}. Both discouraged and delegatory abstention incentives are present under mixed abstention context. The results contribute to the literature by identifying contexts that differentiate the available logic of abstention.
+    
+    \par In the extended model, a third actor---the policymaker---endogenously proposes the policy to be voted in the election. In response to expected voter characteristics, he proposes either a high or low-quality policy. The similar model setting is used to assess electoral accountability \citep{Ashworth2014isvo, Prato2016thvo}.\footnote{The proposed model does not allow the policymaker to misrepresent himself in the election. Informed voters always learn the policy quality correctly, while uninformed voters never receive information regarding policy quality before they vote.} The policymaker varies in its capacity to formulate policy \citep{Gailmard2007slan, Huber2004buca}: the high-capacity type pays a lower cost to formulate a high-quality policy than the low-capacity type. 
+
+    \par The central focus of the extended model is the decision of the policymaker. A low-capacity policymaker always prefers a low-quality policy, but the high-capacity policymaker may have an incentive to propose a high-quality policy with positive probability. The main results (Propositions 4 and 5) show the existence of a condition where the likelihood of the high-quality policy being proposed is increasing in the pivot probability of uninformed voters. This finding follows the suggestion in \cite{Ashworth2014isvo} that uninformed voters sometimes improve, rather than reduce, the accountability of the policymaker. 
+    
+    \par Further inquiry reveals the interesting consequences of the available logic of uninformed abstention. In the baseline voting model, allowing for uninformed abstention increase the likelihood of ``informed'' electoral outcome always under delegatory abstention context, but not always under discouraged or mixed abstention context (Proposition 3). Also, when uninformed voting improves policy accountability, the increase in the likelihood of high-quality policy tends to be larger under the context of delegatory abstention than under that of discouraged abstention (Proposition 6 and 7). Both through approximating informed outcome and improving accountability, delegatory abstention, when available, tends to be more effective than discouraged abstention in increasing the policy welfare of non-ideologue uninformed voters.
+    
+    \par It should be cautioned that policy accountability and voter welfare do not always increase together. It turns out that the improved accountability induced by uninformed voting increases the expected instrumental policy welfare but reduces the expected non-instrumental utility of non-ideologue uninformed voters. The final result (Proposition 8) shows that under delegatory abstention context, where non-instrumental expressive benefit is high, improved accountability sometimes lead to the reduction in voter welfare. 
+    
+    \par By exploring the connection between uninformed abstention and electoral accountability, this study makes significant addition to the study of low-information voter competence. When the representative voter is disaggregated into informed and uninformed groups, the availability of different uninformed abstention logics explains how and when uninformed voters has a power to improve accountability of political elites.
+    %First, the analysis deepens the understanding of the decision-making process of uninformed voters. Previous empirical studies often assume that uninformed voter groups have an inactive and inconsistent nature, but this study offers the image of uninformed voters as active and consistent decision makers. Second, the findings provide a new perspective for assessing vote competence. That is, instead of asking if voters are informed enough or how information improves judgment, we should ask how the behavioral rules of uninformed voters affect individual/social welfare. Uninformed voters may not undermine, and can even improve, the quality of the democratic outcome.
+    %Additionally, the results speak to a broader point on the need to assess the role of electoral context. While we can define informed decisions independently from the electoral environment and outcome, we cannot evaluate decision competence without understanding the environment and the outcome of the election. In specific contexts, the informed decision is not effective or can even be harmful to the competence of voters. Future studies should thus explore contextual factors that affect the relationship between informed and competent decisions.
+    
+    %\section*{Conceptualizing Voter Competence}
+    
+    %\par Whether voters can make competent political decisions is one of the most frequently asked questions in the research field of political behavior. In relevant studies, the concept of ``voter competence'' is often discussed in light of how much voters know about politics and their political preference. They see information and competence as mutually interchangeable. Given the widely documented ignorance, scholars argue that voters are not competent enough to maintain democracy successfully \citep{Converse1964thna, Dellicarpini1996wham}. Their arguments rely on the evidence that uninformed voters tend to deviate from the logic of informed voting: Electoral participation is increasing political knowledge \citep{Gemenis2014voad, Lassen2005thef}, and informed and uninformed voting patterns differ systematically \citep{Bartels1996unvo, Fowler2014thpo}. 
+    %It is often suggested that the lack of knowledgeable citizens prevents democracy from realizing its ideal because . 
+    %As \cite{Somin1998voig} summarizes, the ``current levels of ignorance strongly suggest that democratic control requires a government far more limited in scope than what we have today'' (446). 
+    
+    %\par Another approach evaluates competence by its similarities with informed decision. This line of research emphasizes the role of information shortcuts \citep{Tversky1974juun} that enable uninformed voters to act as-if informed. Scholars argue that the full range of information is unnecessary for uninformed voters to emulate the core preferences and decisions of informed voters \citep{Lupia1998thde, Lupia2016unwh}. Empirical evidence on the information shortcut approach is mixed. On the positive side, there is evidence that voters do emulate informed decisions by receiving cues from political endorsement \citep{Lupia1994shve}, public opinion polls \citep{McKelvey1986inel}, and the media \citep{Popkin1994thre}. Social networks literature also suggests that uninformed voters develop the ability to utilize the political guidance from those who are already informed \citep{Ahn2013exan, Huckfeldt2001thso}. The separate set of studies, however, implies that uninformed voters may not be able to utilize cues effectively. That is, cues play a weaker role among less informed voters \citep{Hobolt2007tacu, Lau2001adan} and can even bias uninformed decisions away from informed preference \citep{Boudreau2015loin}. As such, there is no final consensus regarding whether information cues are sufficient for voters to act as-if informed.
+    
+    %\par Existing studies assume that competence comes from the (as-if) informed decision. While intuitive, it misses the fact that information and competence are two separate constructs. While information indicates the ability of voters to observe their true preference, competence means their ability to offer the effective solution that maximizes their welfare through elections. Competence have at least two dimensions. First, competence relates to the ability of voters to offer an effective solution to the problem. If uninformed voters have solutions to compensate for lack of information, there is a flaw in the assumption to treat them as less competent than informed voters. Second, competence concerns the welfare of the voter population. If a partially uninformed, not fully-informed, public maximizes voter welfare, information does not necessarily make voters competent.
+    
+    %\par This article does not deny the existing empirical evidence, but aims to provide a new perspective on the problem of voter competence. I argue that it is too early to treat the systematic differences between informed and uninformed voting behaviors as evidence of the uninformed voters being less competent than informed voters. Similarly, the successful emulation of informed decisions does not necessarily imply competence. The following analysis shows that informed and uninformed voters face separate sets of incentives when making voting decisions. In certain contexts, the fact that informed and uninformed voters behave differently improves, rather than reduces, voter welfare. 
+    
+    \section*{Modeling Uninformed Abstention}
+    
+    \par Two types of formal models have been used to examine the role of information in voting with abstention. First, the models of costly and sincere voting \citep{Downs1957anec, Riker1968thof, Matsusaka1995exvo} suggest that the lack of information influences voting by uniformly reducing the expected benefit from participation. According to their logic, uninformed voters are discouraged from participation due to the combination of high uncertainty in preference and high voting cost. The models of costless and strategic voting \citep{Feddersen1996thsw, Feddersen1999abin} suggest very different logic of uninformed voting. Their equilibrium analysis reveals that uninformed voters have a strategic incentive to abstain, and delegate their votes to informed voters even without voting cost. If uninformed voters use the expected actions of other voters to guide their decisions under costless voting context, ``strategic voting and abstention'' of uninformed voters ``may lead to an informationally superior election outcome'' \citep[][418]{Feddersen1996thsw}.  
+    
+    \par The baseline model in this article simplifies and extends the previous models to get more intuitive and comprehensive picture of uninformed voting. To make the model simple, the proposed model treats voters as representative groups, not as individuals---informed and uninformed voter groups. The voters within each group share preferences and act uniformly as a group. Typically, the models that deal with the relationship between voters and political elites utilize a similar setting \citep[e.g.,][]{Little2015pran}. The group voting model reduces the number of actors compared to voting models with the collection of individual voters and simplifies the decision calculus. Voters are not expected to make complex calculations of their individual pivotality in the election. Instead, they are expected to make an intuitive conjecture of their group pivotality.
+    
+    \par Additionally, in the proposed model, voters are uncertain about the distribution of ideology and information in the society, details that are critical in determining the strategic incentives of uninformed voters. In \citeauthor{Feddersen1996thsw}'s model, all voters are assumed to know the exact proportions of ideological and informed voters. However, it is unrealistic to expect (especially for uninformed) voters to know such details about the society. Therefore, my model posits that voters know the distribution of information and ideology status only with a probability.
+    
+    \par To make the model comprehensive, as suggested by \cite{Downs1957anec} and \cite{Riker1968thof}, voting is modeled as costly. Also, participated voters receive some expressive benefit (i.e., the benefit of voting that is not instrumental to the election result) as a result of participation. Such variables are omitted in \cite{Feddersen1996thsw, Feddersen1999abin}. Then, as suggested by \cite{Feddersen1996thsw}, voting is modeled as strategic. Thus, voters make decisions based not only on their preferences but also on the expected decisions of other voters.
+    
+    \section*{Modeling Accountability}
+
+    \par The extended model goes beyond the incentives of voters and analyzes the relationship between uninformed abstention and strategic incentives of political elites. Apart from voting, accountability is another major topic in the formal studies of domestic politics. Scholars have been examining bureaucratic and executive accountability to the legislative branch \citep[e.g.,][]{Gailmard2013lewh} and politicians' accountability to voters in elections \citep[e.g.,][]{Ashworth2012elac}. Those studies explore how
+    institutional design and electoral context influences the strategic interaction between actors and consequently, the welfare of service recipients (i.e., legislative branch for bureaucratic accountability, voters for electoral accountability).
+    
+    \par Recent evidence in accountability studies suggests that fully-informed communication between actors does not necessarily produce the best outcome \citep{Ashworth2014isvo, Prato2016thvo, Patty2017expo} or 
+    seemingly irrational decision of voters is effective in making politicians accountable \citep{Gailmard2018prpr}. In particular, \cite{Ashworth2014isvo} argues that after considering the strategic incentive of reelection seeking incumbent politician, voter is sometimes better off being less informed. They model two candidates election with pre- and post-election periods. If voter is fully-informed, incumbent (if his preference different from voter) faces the choice between two extreme options: set voter preferred policy and sure to be reelected or set his preferred policy and sure to be voted out. For voter, the first option maximizes the pre-election payoff but minimizes the post-election payoff. The opposite pattern applies to the second option. Uninformed voter eases extremity in incumbent choices by introducing uncertainty in electoral outcome. Under uninformed condition, in each of pre- and post-election, voter payoff is neither maximized nor minimized. In total, however, voter may obtain higher payoff under uninformed than informed condition.
+        
+    \par Electoral accountability models, including \cite{Ashworth2014isvo}, treat voter as one representative actor and thus cannot allow abstention in election. Since uninformed abstention is a heavily discussed topic in formal models of election \citep{Matsusaka1995exvo, Feddersen1996thsw, Feddersen1999abin}, this is an important omission in existing accountability studies. By disaggregating voter and allowing for uninformed abstention, the electoral accountability model in this article adds significant insights to the connection between voter information and electoral accountability.
+    
+    \section*{The Voting Game}
+    
+    \par At the baseline, I analyze a referendum voting game, where voters directly vote to approve or reject a single policy proposal. After the election, the status quo policy will be replaced by the proposed policy only if the proposal wins the election. The quality of the proposed policy is chosen from $q \in \{-1, 1\}$ as follows. If $q=1$, the proposed policy is of high quality and, if $q=-1$, the policy is of low quality. The quality of the status quo policy is given as $0$. Therefore, voters gain utility by choosing the high-quality policy proposal ($q=1>0$) and lose utility from the low-quality policy proposal ($q=-1<0$).\footnote{The model can be equivalently defined with the status quo policy with quality chosen from $q \in \{-1, 1\}$ and new policy with expected quality $0$.}
+    
+    \par There are two groups of voters, $g \in \{I, U\}$, both act as unitary actors. $I$ are informed voters and $U$ are uninformed voters. $I$ know $q$ for sure, while $U$ only know the prior probability of the high-quality policy proposal, $\phi = Pr(q=1) \in [0, 1]$. Separate from information status, each group of voters holds ideology $\beta_g \in \mathbb{R}$, which influences their policy preferences independent of policy quality. Regarding the relationship between information and ideology, informed voters are thought to have stronger and overarching ideologies than uninformed voters \citep{Converse1964thna, Achen2016defo} but recent empirical evidence suggests that, for a specific issue or policy field, uninformed voters can have an equally strong ideological preference as informed voters \citep{Goren2012onvo, Broockman2016apto}. Here, the election concerns one specific policy. Therefore, I follow the recent suggestions and model that the ideologies of informed and uninformed voters are independently drawn from the same continuous probability density function $f(\cdot)$.
+    
+    \par I denote the vote choice as $x_g \in \{0,1\}$ so that $x_g=1$ indicates the vote to accept the policy proposal and $x_g=0$ the vote to reject the policy proposal. The correct vote choice, $r_g$, is captured by the consistency between $x_g$ and voters' preferences. $r_g$ can be expressed as the function of policy quality $q$ and voters' ideology $\beta_g$:
+    \begin{align}
+    r_g[q, \beta_g] &= \begin{cases}
+    1 &\text{ if } q + \beta_g > 0 \\
+    0 &\text{ if } q + \beta_g < 0  \\
+    (q + 1)/2 &\text{ if } q + \beta_g = 0\\
+    \end{cases}
+    \end{align}
+    \noindent The above function implies that, if the sum of proposed policy quality and ideology exceeds zero, approving the proposal is the correct choice. If the above sum is negative, rejection is the correct choice.\footnote{If the sum of the proposed quality and ideology is equal to zero, it is assumed that voters prefer to vote with the proposed quality (i.e., accept the policy if and only if the policy is of high-quality).}
+    
+    \par Additionally, the correct choice function suggests that, on some occasions, voter preferences are determined solely by the ideology. I call those voters \textit{ideologues}. If $\beta_g > 1$, then $r_g[q, \beta_g]$ is always $1$ regardless of $q$ (approval ideologues). Similarly, $\beta_g < -1$ then $r_g[q, \beta_g]$ is always $0$ (rejection ideologues). Remember that $\beta_g$ is randomly drawn from the continuous probability density function $f(\cdot)$. This distribution is common knowledge but the realized value of $\beta_g$ is private information. The probability of ideologues can be represented by the cumulative density function $F(\cdot)$ of $\beta$:
+    \begin{align}
+    \text{The probability of approval ideologues: } &\kappa_{a} = 1 - Pr(\beta \leq 1) = 1 - F(1)   \\
+    \text{The probability of rejection ideologues: } &\kappa_{r} = Pr(\beta \leq -1) = F(-1)   
+    \end{align}
+    \noindent The remaining type of voters are the \textit{non-ideologues}. Non-ideologues may possess ideology, but ideology does not dominate their voting decisions, as they consider both policy quality and ideology to make their decisions. Assume that $1-\kappa_{a} - \kappa_{r} >0$. This condition implies that any voter group can be formed of non-ideologues with positive probability.
+    
+    \par In addition to the utilities from the electoral outcome, voters gain or lose utility from their actions in the election.  First, voters pay fixed cost $c \in \mathbb{R}^+$ to participate in the election.\footnote{Think of $c$ as the physical cost of voting, which is expected to be distributed independently from the information status. The main result holds when $c$ differs between voter groups.} Second, voters receive \textit{expressive benefit} $d > 0$ from participating in the election. Expressive benefit is weighted by how certain is the voted option matched with the correct preference (i.e., $Pr(x_g=r_g[q, \beta_g])$). 
+    This conceptualization is similar to what is referred to as ``expressive utility'' or ``concern for policy'' in the formal literature \citep{Dewan2008thqu, Little2015pran}.\footnote{Certain expressive benefit can be given independently of the vote choice. In this game, this \textit{fixed} expressive benefit is incorporated in the cost term, $c$, because it reduces participation cost uniformly.} Additionally, assume $d \geq c$: voting is costless for voters who are certain to make correct choice. This setting isolates the incentives for abstention under the minimal cost of voting.
+    
+    \par Now, I denote the voting participation action of each group of voters as $v_g \in \{0,1\}$ so that $v_g=1$ indicates participation and $v_g=0$ indicates abstention. Additionally, I define the electoral outcome of policy approval as $a=1$ and rejection as $a=0$. The utility functions of voters can be summarized as:
+    \begin{align}
+    u_g [a,q,\beta_g,d,c,v_g,x_g] &= a\{\beta_g + q + \epsilon\} + v_g \{d \times Pr(x_g=r_g[q, \beta_g]) - c \} \label{uf}
+    \end{align}
+    
+    \par The sequence of the game is as follows. First, according to $\phi = Pr(q=1)$, the new policy is proposed with quality $q$. Second, both voter groups observe their ideology $\beta_g$, but only informed voters $I$ observe the proposed policy quality $q$. In the third step, $I$ and $U$ decide whether to vote for approval, for rejection, or abstain. At the end of the sequence, either $I$ or $U$ is exogenously selected as the pivotal group. $U$ is the pivotal group with probability $\pi \in [0, 1]$ and $I$ with probability $1-\pi$. $\pi$ is common knowledge to all voters. The vote cast by the pivotal group determines the electoral outcome. If the pivotal group abstains, the outcome is determined by the participating voter group. However, if both groups abstain, the policy stays at the status quo.\footnote{This election mechanism is similar to that of the random dictator game \citep{Morton2015whmo}.} In a real-world context, pivot probability $\pi$ is closely on correlation with the population of each voter group. Since the pivotal voter in plurality elections comes from the majority voter group, $\pi$ is equivalent to the likelihood of uninformed voters being the majority group in the society. Voters should also be able to recognize informed and uninformed voters in the society \citep{Huckfeldt2001thso}, but information regarding the exact population of informed and uninformed voters is rarely made available through public media channels (e.g., television, newspapers, radio); it is thus fair to expect that voters have a sense of, but are not certain about, the population of informed and uninformed voters. The pivot probability reflects the incomplete knowledge regarding the majority voter group in the society. Unless $\pi \in \{0, 1\}$, voters are unable to determine the pivot group with certainty.
+    
+    
+    \par The decision-making in the voting game is one-shot and involves uncertainty. Therefore, the equilibrium of interest is a Bayesian Nash equilibrium. The equilibrium behavior of ideologues (i.e., $\beta_I < -1$ or $\beta_I > 1$) implies the following lemma:
+    
+    \noindent \textbf{Lemma 1}: \textit{The equilibrium strategy $\{x^*_g, v^*_g\}$ of ideologues is to participate in the election and vote in line with their ideology,\footnote{Assume that voters do not play a weakly dominated strategy (i.e., $x_g=1-(q+1)/2$ when $q = - \beta_g$.)}, or} 
+    \begin{align}
+    x^*_g &= \begin{cases}
+    1 &\text{ if } \beta_g > 1 \text{ (approval ideologues)}\\
+    0 &\text{ if } \beta_g < -1 \text{ (rejection ideologues)}
+    \end{cases} \\
+    v^*_g &= 1
+    \end{align}
+    
+    \noindent Then, for non-ideologues (i.e., $\beta_g \in [-1, 1]$), the following result holds for those informed: 
+    
+    \noindent \textbf{Lemma 2}: \textit{The equilibrium strategy $\{x^*_I, v^*_I\}$ of non-ideologue informed voters (i.e., $\beta_I \in [-1, 1]$) is to participate in the election and vote in line with the policy quality, or} 
+    \begin{align}
+    x^*_I &= (1 + q)/2 \\ 
+    v^*_I &= 1
+    \end{align}
+    
+    \par Ideologues only need to know the ideology and non-ideologue informed voters only need to know the policy quality to determine their optimal actions. By contrast, non-ideologue uninformed voters face three uncertainties to determine their equilibrium strategy. The first is the uncertainty regarding the quality of the policy proposal ($\phi = Pr(q=1)$), the second is the uncertainty regarding the pivotal group that determines the electoral outcome ($\pi$), and the third is the uncertainty regarding the ideology of informed voters. Informed voters are approval ideologues with probability $\kappa_{a}$, rejection ideologues with probability $\kappa_{r}$, and non-ideologues with probability $1 - \kappa_{a} - \kappa_{r}$. Given the set of beliefs, $\phi$, $\pi$, $\kappa_{a}$, and $\kappa_{r}$, the equilibrium strategy of uninformed voters implies the following lemma:
+    
+    \noindent \textbf{Lemma 3}: \textit{In the voting game, the equilibrium strategy $\{v^*_U, x^*_U\}$ of non-ideologue uninformed voters (i.e., $\beta_U \in [-1, 1]$) can be represented by a threshold for the expected policy quality ($\phi$), or} 
+    \begin{align}
+    x^*_U &= 
+    \begin{cases}
+    1 & \text{if } \phi \geq \phi^*_x = \cfrac{1}{2} - \cfrac{\pi \beta_U}{2(\pi + d)}\\
+    0 & \text{otherwise}
+    \end{cases} \\
+    v^*_U &= 
+    \begin{cases}
+    0 \text{ if } 
+    &\phi \geq \phi^*_{v1x0} = min\left\{ \phi^*_x, \phi^*_{vr} = \cfrac{\pi \kappa_{a} (1-\beta_U) + d - c}{\pi (\kappa_{a} (1-\beta_U) + (1-\kappa_{r}) (1 + \beta_U))+ d} \right\} \\
+    &\text{ and } \\ 
+    &\phi < \phi^*_{v1x1} =max\left\{ \phi^*_x,  \phi^*_{va} = \cfrac{\pi (1 - \kappa_{a}) (1-\beta_U) + c}{\pi ((1-\kappa_{a}) (1-\beta_U) + \kappa_{r} (1 + \beta_U)) + d} \right\} \\
+    1 &\text{otherwise}
+    \end{cases} 
+    \end{align}
+    \noindent $\phi^*_x$ is the \textbf{approval threshold}. Non-ideologue uninformed voters prefer approval over rejection if and only if there exists the probability of a high-quality proposal reaching the approval threshold or higher values. The higher the $\phi^*_x$, the higher is the probability of the high-quality proposal $(\phi = Pr(q=1))$ required to make uninformed voters approve it. 
+    %Two facts are evident from Lemma 3. First, $\phi^*_x$ is weakly decreasing in ideology $\beta_U$. The higher the ideology, the more attractive the new policy proposal becomes to uninformed voters. Second, the larger the value of expressive benefit $d$, the weaker the influence of $\beta_U$ on the approval threshold is (i.e., the threshold sticks to 0.5). However, a strong motivation to express the correct choice incentivizes uninformed voters to use the most conservative approval threshold, regardless of ideology, which is 0.5.
+    
+    \section*{The Logic of Uninformed Abstention}
+    
+    \par This section explores when and why uninformed voters have reason to abstain from the election. Lemmas 1 and 2 show that ideologue and non-ideologue informed voters have no reason to abstain; the only voters to abstain are non-ideologue uninformed voters. From Lemma 3, the interval between $\phi^*_{v1x0}$ and $\phi^*_{v1x1}$ is the \textbf{abstention interval} (i.e., $[\phi^*_{v1x0},  \phi^*_{v1x1})$). That is, non-ideologue uninformed voters have an incentive to abstain from the election when $\phi$ falls between $\phi^*_{v1x0}$ and $\phi^*_{v1x1}$. The wider this interval, the stronger the incentive for non-ideologue uninformed voters to abstain from the election.
+    
+    \begin{figure}[t!]
+        \caption{Approval Threshold $\phi^*_x$ and Abstention Interval $[\phi^*_{v1x0},  \phi^*_{v1x1})$ Explain the Equilibrium Voting Behavior of Non-ideologue Uninformed Voters}
+        \label{fig:abint}
+        \begin{center}
+            \begin{tikzpicture}
+            \tikzstyle{solid node}=[circle,draw,inner sep=2,fill=black];
+            \tikzstyle{hollow node}=[circle,draw,inner sep=2, fill=white];
+            \draw (-6.5,0)--(6.5,0);
+            \foreach \x in {-6,0,6} \draw (\x,0.15)--(\x,-0.15);
+            \foreach \x in {-2.5,3.5} \draw (\x,0)--(\x,2);
+            \node[above,yshift=4] at (-6,0) {$0$};
+            \node[above,yshift=4] at (0,0) {$1/2$};
+            \node[above,yshift=4] at (6,0) {$1$};
+            \foreach \x in {-2.5,0.5} \node[solid node] at (\x,0) {};
+            \foreach \x in {3.5} \node[hollow node] at (\x,0) {};
+            \node at (7,0) {$\phi$};
+            \node[below,yshift=-3] at (-2.5,0) {$\phi^*_{v1x0}$};
+            \node[below,yshift=-3] at (0.5,0) {$\phi^*_{x}$};
+            \node[below,yshift=-3] at (3.5,0) {$\phi^*_{v1x1}$};
+            \draw[dashed, <->, thick] (-6,1)--(-2.5,1);
+            \draw[dashed, <->, thick] (-2.5,1)--(3.5,1);
+            \draw[dashed, <->, thick] (3.5,1)--(6,1);
+            \node[above,yshift=4] at (-4.25,1) {Reject};
+            \node[above,yshift=4] at (0.5,1) {Abstain};
+            \node[above,yshift=4] at (4.75,1) {Approve};
+            \node[right] at (-6.5,2.5) {If $\lambda(\phi^*_{v1x0},  \phi^*_{v1x1})>0$};            
+            \end{tikzpicture}
+        \end{center}
+        \begin{center}
+            \begin{tikzpicture}
+            \tikzstyle{solid node}=[circle,draw,inner sep=2,fill=black];
+            \tikzstyle{hollow node}=[circle,draw,inner sep=2, fill=white];
+            \draw (-6.5,0)--(6.5,0);
+            \foreach \x in {-6,0,6} \draw (\x,0.15)--(\x,-0.15);
+            \foreach \x in {0.5} \draw (\x,0)--(\x,2);
+            \node[above,yshift=4] at (-6,0) {$0$};
+            \node[above,yshift=4] at (0,0) {$1/2$};
+            \node[above,yshift=4] at (6,0) {$1$};
+            \foreach \x in {0.5} \node[solid node] at (\x,0) {};
+            \node at (7,0) {$\phi$};
+            \node[below,yshift=-3] at (0.5,0) {$\phi^*_{v1x0}=\phi^*_{x}=\phi^*_{v1x1}$};
+            \draw[dashed, <->, thick] (-6,1)--(0.5,1);
+            \draw[dashed, <->, thick] (0.5,1)--(6,1);
+            \node[above,yshift=4] at (-2.75,1) {Reject};
+            \node[above,yshift=4] at (3.25,1) {Approve};
+            \node[right] at (-6.5,2.5) {If $\lambda(\phi^*_{v1x0},  \phi^*_{v1x1})=0$};            
+            \end{tikzpicture}
+        \end{center}
+        \floatnote{$\beta_U$ is assumed to be the negative value in this figure. $\beta_U=0$ implies that $\phi^*_x=1/2$ and $\beta_U>0$ that $\phi^*_x \leq 1/2$.}
+    \end{figure}
+    
+    \par \autoref{fig:abint} visually illustrates the logic of uninformed abstention. The horizontal axis indicates the prior probability of the high-quality policy ($\phi$), and equilibrium behavior can be represented by the cut-points in $\phi$. I denote the width of the abstention interval as $\lambda(\phi^*_{v1x0},  \phi^*_{v1x1}) = \phi^*_{v1x1} - \phi^*_{v1x0}$. The top panel illustrates abstention behavior when $\lambda(\phi^*_{v1x0},  \phi^*_{v1x1}) > 0$. Under this condition, non-ideologues have an incentive to abstain from the election if $\phi$ falls between the lower bound ($\phi^*_{v1x0}$) and upper bound ($\phi^*_{v1x1}$ of the abstention interval. Given that $\phi^*_{v1x0} \leq  \phi^*_x \leq  \phi^*_{v1x1}$, the abstention interval always contains the approval threshold. If $\phi$ is lower than the lower bound (i.e., the low-quality policy is likely), non-ideologues participate and vote for rejection. However, if $\phi$ is higher than the upper bound (i.e., the high-quality policy is likely), non-ideologues participate and vote for approval. The bottom panel illustrates the voting logic when the width of the abstention interval is zero (i.e., $\lambda(\phi^*_{v1x0},  \phi^*_{v1x1}) =0$). Under this condition, non-ideologue uninformed voters always participate in the election and vote for approval or rejection, depending on the value of the approval threshold. 
+    
+    \par To understand the movement within the abstention interval, the following general result holds: 
+    
+    \noindent \textbf{Lemma 4}: \textit{The width of the abstention interval ($\lambda(\phi^*_{v1x0},  \phi^*_{v1x1})$) is weakly increasing in the voting cost ($c$) and weakly decreasing in the expressive benefit ($d$), probability of approval ideologues ($\kappa_a$), and probability of rejection ideologues ($\kappa_r$).}
+    
+    \noindent Lemma 4 shows behavioral patterns consistent with the previous studies on voting. The voting cost discourages participation, while the expressive benefit encourages participation. Additionally, the motivation for participation is also increasing the likelihood of ideologues. Non-ideologue uninformed voters participate in the election when they believe informed voters are highly likely to be ideologues. This implication follows the argument in existing studies that voters with the minority preference tend to have a stronger motivation to participate in the election than those with majority preference \citep{Taylor2010puin, Cantoni2017pras}.
+    
+    \par In contrast to the above factors, the relationship between the pivot probability of uninformed voters and the abstention interval is conditional. The following proposition describes contexts that transform this relationship:
+    
+    \noindent \textbf{Proposition 1}: \textit{The lower bound of the abstention interval ($\phi^*_{v1x0}$) is weakly increasing in the uninformed pivot probability ($\pi$) if and only if the probability of ideologues is sufficiently high and the ratio of the expressive benefit to voting cost ($d/c$) is sufficiently small, or}
+    \begin{align}
+    \frac{\kappa_{a} (1 - \beta_U)}{(1-\kappa_{r})(1+\beta_U)} > d/c - 1 \label{ecc1}
+    \end{align}  
+    \noindent \textit{Similarly, the upper bound of the abstention interval ($\phi^*_{v1x1}$) is weakly decreasing in the uninformed pivot probability ($\pi$) if and only if the probability of ideologues is sufficiently high and the ratio of the expressive benefit to voting cost ($d/c$) is sufficiently small, or}
+    \begin{align}
+    \frac{\kappa_{r} (1 + \beta_U)}{(1-\kappa_{a})(1-\beta_U)} > d/c - 1 \label{ecc2}
+    \end{align}
+    
+    \begin{figure}[t!]
+        \caption{Visual Depiction of Discouraged and Delegatory Abstention Intervals}
+        \label{fig:abgraph}
+        \includegraphics[width=\linewidth]{figure/abgraph-1}
+        \floatnote{Other parameters are fixed at: $d=0.5$, $c=0.3$, and $\beta_U=0$.}
+    \end{figure}
+    
+    \noindent Proposition 1 implies there are three possible relationships between the uninformed pivot probability and the abstention interval. \autoref{fig:abgraph} visually depicts the first two relationship forms. Here, the horizontal axis indicates the pivot probability of uninformed voters ($\pi$) and the vertical one the prior probability of the high-quality policy ($\phi$). Non-ideologue uninformed voters have an incentive to abstain from the election when $\phi$ falls within the shaded area. When both Inequalities \ref{ecc1} and \ref{ecc2} hold, the left-hand panel illustrates \textbf{discouraged abstention}: the abstention interval is narrowing in the uninformed pivot probability, both above and below the approval threshold. This form of abstention is called discouraged since the low probability of being pivotal in election dampens the motivation of non-ideologue uninformed voters to participate in the election. The logic resembles that of the traditional rational choice voting literature \citep{Downs1957anec, Riker1968thof, Matsusaka1995exvo}, in that the combination of low pivot probability, low expressive benefit, and high voting cost leads voters to abstain.
+    
+    \par When neither inequality \ref{ecc1} nor \ref{ecc2} hold, the right-hand panel illustrates \textbf{delegatory abstention}: the abstention interval is widening in the uninformed pivot probability, both above and below the approval threshold. This form of abstention is called delegatory because the logic is similar to that discussed in \cite{Feddersen1996thsw, Feddersen1999abin}. When the probability of being pivotal in the election is high, uninformed voters have the incentive to abstain strategically and \textit{delegate} the electoral outcome to informed voters. In other words, uninformed voters have an incentive to avoid making uncertain vote choices in the election and confuse the electoral outcome.
+    
+    \par The third type of abstention, \textbf{mixed abstention}, is a combination of the first two forms. When only inequality \ref{ecc1} holds, both the lower and upper bounds of the abstention interval are increasing in $\pi$. Similarly, if only inequality \ref{ecc2} holds, both the lower and upper bounds of the abstention interval are decreasing in $\pi$. Under mixed abstention condition, the abstention interval is narrowing in $\pi$ for one side of the approval threshold, but widening in $\pi$ for the other side of the threshold.  
+        
+    \begin{figure}[t!]
+        \caption{$d:c$ Ratio and Probability of Ideologues $\kappa_a$, $\kappa_r$ Explain the Available Form of Abstention}
+        \label{fig:abtype}
+        \includegraphics[width=\linewidth]{figure/abtype-1}
+        \floatnote{$\beta_U$ is fixed at $0$. The absolute values of $d$ and $c$ can change, as long as the ratio holds. Additionally, since $\kappa_a + \kappa_r < 1$, the values of $\kappa_a$ and $\kappa_r$ falling within the upper right triangle of each panel do not exist.}
+    \end{figure}
+    
+    \par The likelihood of ideologues ($\kappa_{a}$ and $\kappa_{r}$) and the ratio of the expressive benefit to voting cost ($d/c$) play important roles in determining the form of the abstention for non-ideologue uninformed voters. \autoref{fig:abtype} summarizes these conditions. The shaded areas reflect the form of uninformed abstention possible under different values of $\kappa_a$ (horizontal axis), $\kappa_r$ (vertical axis). The dark (orange) shading indicates that abstention is delegatory, the brighter (green) shading indicates discouraged abstention, and the brightest (yellow) shading indicates mixed abstention. 
+    
+    \par Each panel of \autoref{fig:abtype} depicts the different ratios of $d$ to $c$. Across panels, the area of delegatory abstention is increasing, while the area of discouraged abstention is decreasing as ratio. Notice that when $c$ is sufficiently low relative to $d$, the only possible abstention type is delegatory (as shown in the rightmost panel). In fact, the following proposition holds for the existence of the abstention interval with a positive width (i.e., $\lambda(\phi^*_{v1x0},\phi^*_{v1x1})>0$):
+    
+    \noindent \textbf{Proposition 2}: \textit{When $c=0$, non-zero abstention interval (i.e., $\lambda(\phi^*_{v1x0},\phi^*_{v1x1})>0$) exists only under the context of delegatory abstention, for a sufficiently high $\pi$ and sufficiently low $\kappa_a$, $\kappa_r$, and $d$.}
+    
+    \noindent Proposition 2 follows the implications of \cite{Feddersen1996thsw}, who argue that delegatory abstention occurs independently of the voting cost. Note that the absolute value of $d$ must be sufficiently low to ensure the existence of a non-zero delegatory abstention interval. For delegatory abstention to occur, the expressive benefit to the voting cost ratio (i.e., $d/c$) must be sufficiently high but the absolute difference between two parameters (i.e., $d-c$) must be sufficiently low. This pattern emerges because a high absolute non-instrumental utility reduces the relative importance of receiving instrumental utility from policy quality (which is fixed to $-1$ and $1$ in this game). If the absolute value of the expressive benefit is too high, uninformed voters are better off voting than delegating even if the likelihood of the correct choice is low.
+    
+    \par In the left-hand and central panels of \autoref{fig:abtype} (i.e., voting cost is sufficiently high relative to the expressive benefit), the prior probability of ideologues plays an important role in determining what form of abstention may occur. Inequalities \ref{ecc1} and \ref{ecc2} imply that, when voters are non-ideologues for sure (i.e., $\kappa_{a} = \kappa_{r} = 0$), only delegatory abstention is possible. Delegatory motivation leads to abstention when non-ideologue uninformed voters expect informed voters to share the same preference. An increase in the likelihood of ideologues makes discouraged abstention more likely than delegatory abstention. If informed voters are highly likely to be ideologues, non-ideologue uninformed voters lose the incentive to delegate votes. Under this condition, abstention occurs only due to discouragement from the high voting cost. Mixed abstention tends to occur when the likelihoods of approval ideologues and of rejection ideologues differ significantly. If $\kappa_a$ is significantly higher than $\kappa_r$ (the bottom right corner of each panel), delegatory motivation drives abstention when non-ideologue uninformed voters relatively prefer the approval vote (i.e., $\phi \geq \phi^*_x$) and discouraged motivation drives abstention when non-ideologue uninformed voters relatively prefer the rejection vote (i.e., $\phi < \phi^*_x$). The opposite pattern occurs if $\kappa_r$ is significantly higher than $\kappa_a$ (the top left corner of each panel).
+    
+    \par The above uninformed voting logic unifies the two different explanations of uninformed abstention discussed in the literature. Discouraged abstention follows the classic logic of political participation \citep{Downs1957anec} to see abstention as the product of high voting cost and low electoral efficacy. Delegatory abstention supports the contrasting view suggested by \cite{Feddersen1996thsw} to understand uninformed abstention as the active delegation of the electoral decision to informed voters. Proposition 1 identifies electoral contexts that condition the occurrence of different abstention forms. When the voting cost is sufficiently low and the likelihood of informed voters sharing the same preference as non-ideologue uninformed voters is sufficiently high, the abstention of non-ideologue uninformed voters occurs as a result of active delegation rather than discouraged inactivity.
+    
+    \par Lastly, consider if uninformed abstention helps to approximate the electoral outcome of fully-informed public. Define \text{informed outcome} as the hypothetical electoral outcome where both $I$ and $U$ are informed. The  following proposition holds for the likelihood of informed outcome.   
+    
+    \noindent \textbf{Proposition 3}: \textit{Under the context of delegatory abstention, allowing for uninformed abstention always weakly increases the likelihood of informed outcome. However, under contexts of discouraged and mixed abstention, there exists a condition where allowing for uninformed abstention decreases the likelihood of informed outcome.}
+    
+    \noindent Proposition 3 shows that uninformed abstention is not always helpful in approximating the informed electoral outcome. Following \cite{Feddersen1996thsw}, delegatory abstention always improves the likelihood of the high-quality policy being approved and the low-quality policy being rejected. On the other hand, if the available form of abstention is either discouraged or mixed, uninformed abstention may not be helpful in approximating the informed electoral outcome. Rather, uninformed voters abstain for the sake of non-instrumental gain from not paying the voting cost.
+    
+    \section*{The Accountability Game}
+    
+    \par Here, I extend the voting game to consider the situation where the proposed policy quality is endogenously determined by a third actor. I call this new game the accountability game. For simplicity, assume that the ideology is chosen from three discrete categories ($\beta_g \in \{R, 0, A\}$ where $R<-1$ and $A>1$).\footnote{This is a special case of the ideology distribution $f(\cdot)$. The central implications hold with a more general $f(\cdot)$.} This game inherits almost all settings of the voting game but has an additional stage at the beginning: the $P$ proposes policy proposal $q$.
+    
+    \par Formal studies on policymaking suggest that a policymaker may have a differential capacity to formulate a high-quality policy \cite[e.g.,][]{Gailmard2007slan, Huber2004buca}. As such, in the accountability game, there are two types of policymakers $T \in \{H, L\}$: high-capacity $P_H$ and low-capacity $P_L$. The two types differ in the level of effort required to formulate the policy. The high-capacity policymaker puts relatively low effort $\eta_H = 1$ to achieve the high quality compared to the low-capacity policymaker (who needs $\eta_L = 2$ to achieve the high-quality policy). Further, the policymaker gains a fixed positive benefit ($B=2$) from the new policy being approved in the election.\footnote{The default values normalize the cost of policymaking. The central implications hold as long as $\eta_H < B \leq \eta_L$.} One can understand $B$ as the motivation for policymakers to appear effective in creating the policy. Consequently, the utility function of $P$ is defined as:
+    \begin{align}
+    u_P = \begin{cases}
+    2 - \eta_T \cdot (1+q)/2 &\text{ if the policy is approved} \\
+    - \eta_T \cdot (1+q)/2 &\text{ if the policy is rejected} \\
+    \end{cases} \label{acuf}
+    \end{align}
+    \noindent Regardless of the electoral outcome, the policymaker has to put effort $\eta_T$ into formulating the high-quality policy ($q=1$). On the other hand, the low-quality policy can be formulated without this effort. Then, if the policy is approved, the policymaker receives approval benefit $B=2$. 
+    
+    \par The utility function represented in \autoref{acuf} implies the following lemma regarding the equilibrium decision of the low-capacity policymaker:
+    
+    \noindent \textbf{Lemma 5}: \textit{The equilibrium strategy of the low-capacity policymaker $P_L$ is to always propose the low-quality policy ($q=-1$).}
+    
+    \noindent Lemma 5 shows that the low-capacity policymaker always proposes the low-quality policy ($q=-1$) at equilibrium. The approval benefit ($B=2$) fails to make up for the effort level required for the high-quality policy ($\eta_L=2$). Therefore, only the high-capacity policymaker is potentially responsive to expected voting behavior in the election.
+    
+    \par The type of policymaker is not common knowledge, and all voters form belief $p \in [0, 1]$, which indicates the probability of the high-capacity policymaker. Since the low-capacity policymaker always proposes the low-quality policy (Lemma 5), voters are only uncertain about the decisions of the high-capacity policymaker. I denote $\phi_H \in [0,1]$ as the probability that the high-capacity policymaker formulates a high-quality policy. Given that only the high-capacity policymaker can potentially formulate the high-quality policy, voters' prior belief regarding the probability of high-policy quality is represented by $\phi = p \cdot \phi_H$. 
+    
+    \par The sequence of the accountability game is as follows. First, nature selects the high-capacity policymaker with probability $p$ and the low-capacity policymaker with $1-p$. $p$ is a common knowledge. Then, the selected policymaker ($P_T$) decides whether to propose the high- or low-quality policy by $\phi_T = Pr(q=1) \in [0, 1]$. Only informed voters observe the quality of the policy. If $\phi_T = 0$, the policymaker of type $T$ proposes the low-quality policy for sure; if $\phi_T = 1$, the policymaker of type $T$ proposes the high-quality policy for sure. The election in the accountability game is identical to the voting game. 
+    
+    \par Since the accountability game involves the dynamic process of decision-making, the appropriate equilibrium of interest is a perfect Bayesian equilibrium. The analytical result of the voting game (Lemmas 1--3) still explains the equilibrium behavioral rule of voters because two games share the same voting process. The focus of this section is describing the behavior of the policymaker. To establish the baseline behavior, suppose that informed voters are always pivotal in determining the electoral outcome ($\pi=0$). The following proposition reflects the equilibrium behavior of the high-capacity policymaker:
+    
+    \noindent \textbf{Proposition 4}: \textit{Suppose that $\pi=0$. $P_H$ proposes the high-quality policy for sure if the probability of ideologues is sufficiently low and the low-quality policy for sure otherwise, or}
+    \begin{align}
+    \phi^*_H[\pi=0] &=
+    \begin{cases}
+    0 &\text{ if }  \kappa_{a} + \kappa_{r} \geq 0.5 \\
+    1 &\text{ if }  \kappa_{a} + \kappa_{r} < 0.5
+    \end{cases}
+    \end{align}
+    
+    \noindent Proposition 4 provides the starting point of the analysis when informed voters determine the electoral outcome for certain. This condition is equivalent to a fully-informed public because all voters who are potentially pivotal in the election are informed. Then, the likelihood of ideologues fully determines the quality decision of high-capacity policymaker. If the combined likelihood of voters being ideologues (i.e., both approval and rejection ideologues) is below $0.5$, $P_H$ proposes the high-quality policy for certain ($\phi^*_H[\pi=0]=1$) thus fully-informed public maximizes the accountability. On the other hand, if the likelihood of ideologues is $0.5$ or above, $P_H$ proposes the low-quality policy for certain ($\phi^*_H[\pi=0]=0$). The high likelihood of ideologues dampens the motivation for a high-quality proposal because the decision calculus of ideologues cannot be influenced by the policy quality (Lemma 1). 
+        
+    \par The presence of potentially pivotal uninformed voters ($\pi>0$) changes the strategic motivation of the high-capacity policymaker. When $\phi^*_H[\pi=0]=1$, it is obvious that this change can only lead to the decline in accountability. Consistent with the existing arguments that information (or informed decision) is crucial for voters to become competent, for some positive $\pi$, $\phi^*_H$ moves down from $1$ (see Online Appendix for the example).
+
+    \par However, when $\phi^*_H[\pi=0]=0$, following Proposition holds for the decision of the high-capacity policymaker.
+    
+    \noindent \textbf{Proposition 5}: \textit{Suppose that $\phi^*_H[\pi=0]=0$ holds (i.e., $\kappa_{a}+\kappa_{r} \geq 0.5$). If $\pi>0$ (i.e., uninformed voters are potentially pivotal), $\phi^*_H$ deviates to $\phi^*_{v1x0}/p$ or $\phi^*_{v1x1}/p$ for a:
+    \begin{itemize}
+        \item sufficiently high $\pi$,
+        \item sufficiently high $p$, and 
+        \item sufficiently low  $\kappa_{a}+\kappa_{r}$
+    \end{itemize}
+    }    
+    
+    \noindent In the above, the deviation from $\phi^*_H=0$ occurs because the increase in $\phi^*_H$ can increase the policy approval likelihood. By setting $\phi^*_H=\phi^*_{v1x0}/p$, the policymaker can ensure that the non-ideologue uninformed voters abstain from the election (instead of voting for rejection) and by setting $\phi^*_H=\phi^*_{v1x1}/p$ the policymaker can gain the approval vote of non-ideologue uninformed voters.
+    
+    \par Proposition 5 implies that the presence of potentially pivotal uninformed voters can increase the likelihood of high-quality policymaking, the finding consistent with \cite{Ashworth2014isvo}. When voters are fully-informed, the high-capacity policymaker facing a likely-to-be ideological population loses motivation to formulate the high-quality policy. However, under the equally ideological population with potentially pivotal uninformed voters, the high-capacity policymaker may have an incentive to set the high-quality policy with positive probability so that he can prevent the rejection vote of non-ideologue uninformed voters.
+    
+    \par The accountability improvement occurs under three conditions. First, uninformed pivot probability ($\pi$) must be sufficiently high so that the prevention of their rejection votes is effective in increasing the policy approval likelihood. Second, the prior probability of the high-capacity policymaker ($p$) must be sufficiently high. When $p$ is too low, no possible value of $\phi_H$ can stop rejection votes of non-ideologue uninformed voters. Third, the likelihood of ideologues ($\kappa_{a}+\kappa_{r}$) must be sufficiently low. It must be $\kappa_{a}+\kappa_{r} \geq 0.5$ for the accountability improvement to occur, but if it is too high, the expected decision of non-ideologue voters is not important in determining electoral outcome.
+    
+    \par Moreover, consider the role of abstention logic in the accountability improvement. When $P_H$ has an incentive to deviate from the low-quality policy ($\phi^*_H=0$), the following proposition holds for the equilibrium choice of the probability of high-quality policymaking:
+    
+    \noindent \textbf{Proposition 6}: \textit{Suppose that $\kappa_{a}+\kappa_{r} \geq 0.5$ and $P_H$ deviates from $\phi^*_H=0$ under $\pi>0$. Holding other factors constant, the choice of $\phi^*_{v1x0}/p$ tends to occur under the discouraged abstention context (i.e., low $d:c$ ratio) and the choice of $\phi^*_{v1x1}/p$ under the delegatory abstention context (i.e., high $d:c$ ratio).}
+    
+    \noindent Proposition 6 implies that the improvement in accountability induced by uninformed voting tends to be larger under delegatory than discouraged abstention context. Under delegatory abstention context, $P_H$ tends to propose the high-quality policy with high probability to obtain the approval vote of non-ideologue uninformed voters. However, under discouraged abstention context, $P_H$ tends to propose the high-quality policy with low probability because he is better off suppressing than encouraging the participation of non-ideologue uninformed voters.
+    
+    \begin{figure}[t!]
+        \caption{How The Presence of Uninformed Voters Improves Accountability}
+        \label{fig:eupgraph}
+        \includegraphics[width=\linewidth]{figure/eupgraph-1}
+        \floatnote{Relevant parameters are fixed to: $\kappa_a = \kappa_r = 0.3$ and $p=0.85$. If $\phi_H$ falls within the shaded interval, non-ideologue uninformed voters abstain from the election.}
+    \end{figure}
+    
+    \par \autoref{fig:eupgraph} illustrates the relationship between the decision calculus of $P_H$ and the presence of potentially pivotal uninformed voters when $\kappa_{r}+\kappa_{a}\geq 0.5$. %In each panel, the horizontal axis shows the policy quality decisions of the high-capacity policymaker ($\phi_H \in [0,1]$) and the vertical axis the corresponding expected utilities ($Eu(P_H)$). The equilibrium quality decision ($\phi^*_H$) is determined by the value of $\phi_H$ that maximizes expected utility. The figure focuses on the role of $\pi$ and the form of abstention in changing the equilibrium decision (other parameters are fixed at $\kappa_{r}=\kappa_{a}=0.3$ and $p=0.85$). The shaded area represents the values of $\phi_H$ that motivate non-ideologue uninformed voters to abstain from the election (i.e., corresponds to the interval illustrated in \autoref{fig:abint}). They cast a rejection vote for $\phi_H$ at the left-hand side of the interval and approval vote for $\phi_H$ at the right-hand side of the interval. %\par 
+    In each row, the left panel shows $Eu(P_H)$ is strictly decreasing in the probability of high-quality policy proposal ($\phi_H$). Facing the fully-informed pivotal voter ($\pi=0$), $P_H$ has no incentive to deviate from the low-quality policy. The central panel indicates that, if uninformed voters are potentially pivotal ($\pi>0$), $Eu(P_H)$ is increasing in $\phi_H$ at the cut-points that correspond to the change in uninformed voting behavior. If $\pi$ is sufficiently high (the right-hand panel), expected utility of $P_H$ is maximized at $\phi^*_H>0$.
+    
+    \par The top row of the figure illustrates the decision calculus when the available form of abstention is discouraged (i.e., high $d:c$ ratio, $d=0.5$ and $c=0.4$). In this case, the reduction in the abstention interval causes a more substantial increase in the $Eu(P_H)$ at the cut-point corresponding to the lower bound of the abstention interval (i.e., $\phi^*_{v1x0}$) than at the cut-point corresponding to the upper bound. The bottom row shows the opposite case. Under the electoral context with the delegatory abstention (i.e., high $d:c$ ratio, $d=0.8$ and $c=0.4$), the expansion of the abstention interval causes a more significant increase in $Eu(P_H)$ at the upper bound of the interval than at the lower bound. Consequently, for a sufficiently high $\pi$, $P_H$ proposes the high-quality policy with the higher probability under delegatory than discouraged abstention context.
+    %\par Note that the prior probability of the high-capacity policymaker ($p$) plays a role in the decision calculus of $P_H$. The increase from $\phi^*_H=0$ occurs only when $p$ is sufficiently high. The logic behind this fact is as follows. First, the high-capacity policymaker proposes the high-quality policy with a positive probability only when this action can prevent uninformed voters from voting for rejection. Second, uninformed voters stop voting for rejection only when the prior belief of the high-quality policy proposal (i.e., $\phi = p \cdot \phi_H$) is sufficiently high. Since the low-capacity policymaker never proposes the high-quality policy, a low $p$ dampens the probability of the high-quality policy in general. When $p$ is low (i.e., $p < \phi^*_{v1x0}$), no possible value of $\phi_H$ can convince non-ideologue uninformed voters to stop voting for rejection; thus, $P_H$ sticks to the low-quality policy.
+    
+    \par Lastly, the following proposition holds for the equilibrium decision of high-capacity policymaker if uninformed abstention is not allowed. 
+    
+    \noindent \textbf{Proposition 7}: \textit{Suppose that $\kappa_a+\kappa_r \geq 0.5$ and uninformed abstention is not allowed. If $P_H$ deviates from $\phi^*_H=0$ under $\pi>0$, he chooses $\phi^*_x/p=1/2p$.}  
+
+    \noindent The combination of Proposition 6 and 7 implies that if uninformed voting induces accountability improvement, allowing for abstention may increase or decrease the size of improvement. Since $\phi^*_{v1x0} \leq \phi^*_x \leq  \phi^*_{v1x1}$, allowing for abstention further improves accountability if $\phi^*_H=\phi^*_{v1x1}/p$ (tends to occur under delegatory abstention context) but reduces accountability if $\phi^*_H=\phi^*_{v1x0}/p$ (tends to occur under discouraged abstention context). Again, it is shown that uninformed voting contributes to the improvement in democratic decision-making especially under the context of delegatory abstention.
+    %\par The analysis in this section shows that uninformed voting has the potential to improve policy accountability. The improvement occurs when the policymaker expects voters to be sufficiently ideological (i.e., $\kappa_{r}+\kappa_{a}\geq0.5$), he proposes the low-quality policy at no cost if all pivotal voters are fully-informed; however, he may pay the cost to formulate the high-quality policy if uninformed voters are potentially pivotal. Furthermore, if the policymaker proposes the high-quality policy with positive probability, this probability tends to be higher in electoral contexts where the available form of uninformed abstention is delegatory rather than discouraged.
+    
+    \section*{Trade-Off of Accountability}
+
+    \par In the accountability game, voter welfare and accountability are two separate constructs. While both are important for democracy to work, the relationship between accountability and voter welfare may not be positive. This inconsistency can occur under two occasions. First is when the likelihood of rejection ideologues ($\kappa_r$) is high or rejection ideology ($R$) is strong. For rejection ideologues, there is a trade-off between approval likelihood and expected policy quality (both are increasing in accountability). Since they always prefer rejection, the increase in approval likelihood reduces their welfare. On the other hand, the increase in the likelihood of high-quality policy lessens the expected loss from new policy being approved. If the welfare reduction from increasing approval likelihood is heavily weighted in this trade-off, accountability may reduce expected voter welfare.
+
+    \par Second, for voters who are relatively moderate in ideology, accountability improvement increases instrumental policy utility but reduces non-instrumental expressive utility. As a result, the following proposition holds for the second occasion where accountability and voter welfare do not increase together:
+    
+    \noindent \textbf{Proposition 8}: \textit{Suppose that $\phi^*_H[\pi=0]=0$ and $\phi^*_H$ deviates to $\phi^*_{v1x1}/p$ under $\pi>0$ and $R \geq - (1+\pi)/(1-\pi)$. Holding other factors, the accountability improvement induced by uninformed voting reduces voter welfare for a sufficiently high expressive benefit ($d$).}
+    
+    \noindent Note that accountability has nothing to do with the expressive benefit of ideologues and non-ideologue informed voters, who always participate in election and make correct choice. For non-ideologue uninformed voters, accountability improvement has a trade-off. When there is no accountability improvement ($P_H$ sticks to $\phi^*_H=0=\phi^*$), the expressive benefit is maximized because non-ideologue uninformed voters always participate and know for certain that rejection is the correct choice. Then, if accountability improvement occurs at  $\phi^*_H=\phi^*_{v1x1}/p$, non-ideologue uninformed voters voting for approval lose expressive benefit because they cannot know for certain that their approval vote is the correct choice.
+    
+    \par Proposition 8 implies that abstention under delegatory abstention context (high $d:c$ ratio) can be a double-edged sword. On the one hand, it induces high accountability from policymaker and thus high expected instrumental policy utility. On the other hand, if the expressive benefit ($d$) is too large, it may reduce voter welfare by increasing the expected loss from non-instrumental expressive benefit. 
+
+    %\par The previous section showed that policy accountability can increase in response to uninformed voting. This section extends the analysis to consider its implications on voter welfare. Since ideologues do not care about the quality of the policy, I focus on non-ideologues to determine if the presence of potentially uninformed pivotal voters can improve welfare.\footnote{The same result holds for the entire voter population, as long as the ideology distribution is ``balanced'' (i.e., $\kappa_r R = \kappa_a A$).} To calculate the welfare of the voter population, I define $\psi$ as the proportion of uninformed voters and $1-\psi$ as that of informed voters. Assume that $\psi$ is randomly drawn from the continuous probability density function $\gamma(\cdot)$ defined on the interval $[0, 1]$ and only $\gamma(\cdot)$ is common knowledge. Then, it is obvious that the uninformed pivot probability ($\pi$) is the function of the cumulative probability $\Gamma(\cdot)$:
+    %\begin{align}
+    %\pi = 1 - Pr(\psi \leq 0.5) = 1 - \Gamma(0.5)
+    %\end{align}
+    %\noindent The above function illustrates that $\pi$ is the probability of uninformed voters being predominant in the voter population. Using $\psi$, the combined non-ideologue voter welfare after the election can be defined as the weighted sum of the utility of the two voter groups (see \autoref{uf} for the original utility function):
+    %\begin{align}
+    %\text{Voter welfare} = \psi u_U [a,q,\beta_U=0,v_U,x_U,d,c]  + (1-\psi) u_I [a,q,\beta_I=0,v_I,x_I,d,c]
+    %\end{align}
+    %\par Applying the above formula to the accountability game, I examine the consequences of uninformed voting on voter welfare. The following proposition holds:
+    %\noindent \textbf{Proposition 7}: \textit{Consider voter welfare in the accountability game when $\kappa_{r} + \kappa_{a} \geq 0.5$. If $d$ is sufficiently small, expected non-ideologue voter welfare is non-decreasing in the pivot probability of uninformed voters for any $\gamma(\cdot)$.}
+    %\noindent Proposition 7 implies that the increased accountability of the policymaker in response to the presence of potentially uninformed pivotal voters (Proposition 5) contributes to improving non-ideologue voter welfare. This pattern occurs when the expressive benefit ($d$) is sufficiently small. Consistent with the implications of Proposition 2, the increase in the absolute value of $d$ dampens the relative importance of instrumental utility on policy quality. For non-ideologue uninformed voters, the increase in policy accountability ($\phi^*_H$) improves policy utility but reduces the expected expressive benefit. Therefore, non-ideologue voter welfare is increasing in policy accountability as long as the gain in the expected policy utility outweighs the loss in the expected expressive benefit. 
+    
+    \section*{Discussion}
+
+    \par This article adds to the discussion of low-information voter competence by analyzing the comprehensive model of uninformed abstention and its connection with electoral accountability. The baseline voting model offers the contextual explanation of discouraged and delegatory abstention motivation that bridges the logic of abstention described in costly sincere voting \citep{Downs1957anec, Riker1968thof, Matsusaka1995exvo} and costless strategic voting \citep{Feddersen1996thsw, Feddersen1999abin} literature. The extended accountability model shows that uninformed voting with abstention, when the likelihood of ideological voting is moderately high (but not too high), may improve accountability. This finding follows the recent argument that fully-informed informed citizenly does not necessarily produce the best democratic outcome \citep{Ashworth2014isvo, Prato2016thvo, Couzin2011unin}. 
+
+    \par Contexts that determines the available logic of abstention play an important role in characterizing the connection between uninformed voting and democratic competence. In general, uninformed abstention does a better job at both approximating informed electoral outcome and improving accountability under delegatory abstention context (high expressive benefit and low voting cost) than under discouraged abstention context (low expressive benefit and high voting cost). On the other hand, the high expressive benefit, which induces delegatory abstention, may mean that uninformed voters cannot benefit from the heightened accountability.
+    
+    \par Today, empirical scholars concern that ideological and expressively motivated voting may disturb the healthy function of American democracy \citep{Iyengar2015fean, Achen2016defo}. The results in this article suggest that uninformed voters can be a key to ease, rather than raise, this concern. Under highly (but not too highly) ideological public with high (but not too high) expressive benefit, the presence of potentially pivotal uninformed voting may improve accountability of policymaker and consequently increases voter welfare.
+    
+    %\par This article questions the practice of equating information with voter competence. First, I offer a comprehensive explanation of the abstention behavior of uninformed voters, and show that the combination of low efficacy and high voting cost (termed \textit{discouraged} motivation) is not the only reason uninformed voters abstain from the election. When the voting cost is sufficiently low relative to the expressive benefit and informed voters are sufficiently unlikely to be ideological, \textit{delegatory} motivation drives the abstention of non-ideologue uninformed voters: non-ideologue uninformed voters have a cost-independent incentive to abstain and allow informed voters to determine the electoral outcome when their decision is highly likely to be pivotal. The conditional explanations of discouraged and delegatory abstention motivation bridge the logic of abstention described in traditional voting literature \citep{Downs1957anec, Riker1968thof, Matsusaka1995exvo} and the relatively more recent literature on strategic voting \citep{Feddersen1996thsw, Feddersen1999abin}. It is further implied that delegatory abstention is more effective than discouraged abstention in electing the ``good'' policy during the election.
+    %\par The extended game of endogenous policymaking shows that uninformed voting, in certain contexts, can even improve policy accountability and voter welfare. When voters are sufficiently but not too likely to be ideological and the policymaker is sufficiently likely to be skillful so that he/she is responsive to the decisions of voters, the accountability of the policymaker can increase for a sufficiently high pivot probability of the uninformed voters. This improvement in policy accountability corresponds with an increase in the welfare of non-ideologues as long as the expressive benefit is not too high. If competence represents the ability of voters to improve their welfare, fully-informed citizenry is not the only path for maximizing competence. The current findings suggest that the presence of uninformed voters can improve the accountability of political elites in the general interest of society. This finding is consistent with the implications in the literature on the perils of fully-informed decision-making \citep{Prato2016thvo, Patty2017expo, Couzin2011unin}.
+    
+    \par Note that two caveats remain when generalizing the current results to a real-world election. First, informed and uninformed voters are respectively treated as unitary actors in this paper. Following the fact that information is rarely customized for individuals in the society and voters tend to shortcut decision-making by acting as a group \citep{Tajfel1979anin, Druckman1994napa, Huddy2002frso, Iyengar2012afno}, this article avoids the over-complication of the decision-making process of treating voters as individuals. While the identified voting logic resembles the findings of more complicated, individual-level models \citep[e.g.,][]{Feddersen1996thsw}, this logic may not be directly applicable to real-world behaviors. Second, this article focuses on how uninformed voters can enhance uncertain common interests, but not exactly how they represent uncertain ideological preferences in the election. Uninformed voters in the proposed model are thus uncertain about the quality of policy but certain about their ideology. However, in real-world contexts, identifying and measuring common interest (i.e., policy quality) can be a difficult task.
+
+    \par The theory discussed here can be extended in at least two directions. First, the model assumes that uninformed and informed voters never communicate. However, evidence from social network studies \citep{Huckfeldt2001thso} suggests this is not often the case, as uninformed and informed voters do have daily interactions. In future studies, it would thus be interesting to incorporate the communication with informed voters as an additional resource of decision-making for uninformed voters and consider its consequences. Second, the proposed model assumes that the information level is independent of voter ideology. Nonetheless, empirical evidence suggests this is not necessarily the case, as the aggregate level of political knowledge differs systematically by social group \citep{Dellicarpini1996wham, Althaus2003copr}. Exploring the consequences of the systematic relationship between ideology and information is one of the promising directions for development based on current theory.
+    
+    \clearpage
+    \bibliography{uninref.bib}
+    %\bibliography{C:/GoogleDrive/Reference/list_jabref.bib}
+    
+%    \section*{Supporting Materials}
+%    
+%    Additional Supporting Materials can be found online, on the journal's website. 
+%    
+%    \noindent \textbf{Appendix A}: Voting Game Proofs \\
+%    \noindent \textbf{Appendix B}: Accountability Game Proofs \\
+%    \noindent \textbf{Appendix C}: Simulation Codes for Comparative Statics \\
+    
+    %\processdelayedfloats
+    
+    \input{Kato2019thlo_appendix.tex}
+    
+\end{document}
