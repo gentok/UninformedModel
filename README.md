@@ -1,9 +1,9 @@
 ## When Strategic Uninformed Abstention Improves Democratic Accountability
 
-* #### [Working Paper (4/7/2019)](Kato2018thlo_main.pdf)
+* #### [Working Paper (9/9/2019)](Kato2019thlo_main.pdf)
 * #### [Presentation Slide (4/6/2019)](Uninformed_Model_040619_MPSA19.pdf)
-* #### [Appendix C: Simulation Codes (01/03/2019)](Kato2018thlo_simulations.R)
-* #### [Appendix C: Knitr File to Generate Simulation Figures (01/03/2019)](Kato2018thlo_simulations_out.Rnw)
+* #### [Appendix C: Simulation Codes (01/03/2019)](Kato2019thlo_simulations.R)
+* #### [Appendix C: Knitr File to Generate Simulation Figures (01/03/2019)](Kato2019thlo_simulations_out.Rnw)
 
 **Author**: Gento Kato (University of California, Davis)
 
