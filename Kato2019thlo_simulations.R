@@ -1,7 +1,7 @@
 #' ---
-#' title: "Appendix C: Simulation Codes for Comparative Statics"
+#' title: "Appendix E: Simulation Codes for Comparative Statics"
 #' author: "Gento Kato"
-#' date: "October 12, 2018"
+#' date: "December 2, 2018"
 #' ---
 
 #' # Preparation
@@ -9,6 +9,7 @@
 ## Set Working Directory to the current directory 
 ## (If using RStudio, can be set automatically)
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+dir.create("./figure")
 
 ## Import Relevant packages
 library(ggplot2)
@@ -100,6 +101,8 @@ abgraph <-
         legend.position = "bottom")
 abgraph              
 
+ggsave("figure/abgraph-1.jpeg", abgraph, width=6.5, height=3.5, dpi=500)
+
 #' # Figure 3: d:c Ratio and the Probability of Ideologues ka, kr Explain 
 #' the Available Form of Abstention
 #' 
@@ -168,6 +171,8 @@ abtype <-
         strip.text = element_text(face="bold", size=12),
         legend.position = "bottom")
 abtype
+
+ggsave("figure/abtype-1.jpeg", abtype, width=7, height=3.5, dpi=500)
 
 
 #' # Figure 4: For Sufficiently High pi, PH Proposes the Higher-Quality Policy 
@@ -396,6 +401,367 @@ p123456 <- arrangeGrob(p123,p456,
                                        rot=90))
 grid.arrange(p123456)
 
+ggsave("figure/eupgraph-1.jpeg", p123456, width=10, height=6.5, dpi=500)
+
+
+#' # Prevalence of Accountability Improvement
+
+## Solution Formula for quadratic function
+kaifm <- function(a,b,c,mode="plus"){
+  den <- 2*a
+  if (mode=="plus") {
+    num <- -b + sqrt(b^2 - 4*a*c)
+  } else if (mode=="minus") {
+    num <- -b - sqrt(b^2 - 4*a*c)
+  }
+  return(num/den)
+}
+
+## Pi threshold EU_H(phi_v1x0) > EU_H(0) 
+gpith <- function(p,ka,kr,d,c, mode="plus", exportadv=FALSE) {
+  
+  fa = (1-ka-kr)*ka*(p*(1+ka-kr)-(ka+kr))
+  if (any(fa<0) & mode=="plus") warning("mode should be minus for some values")
+  fb = (1-ka-kr)*(p*ka*d - (ka+kr)*(d-c))-ka*(ka+kr-0.5)
+  fc = -(ka+kr-0.5)*(d-c)
+  pith = kaifm(fa,fb,fc,mode=mode)
+  
+  if (exportadv==TRUE) {
+    pi = seq(0,1,length=50)
+    adv = 2*(fa*pi^2 + fb*pi + fc)
+    names(adv) = pi
+    return(list(pith=pith,adv=adv))
+  } else {
+    return(pith)
+  }
+  
+}
+
+#gpith(0.85,0.3,0.3,0.5,0.4)
+
+## Pi threshold EU_H(phi_v1x1) > EU_H(0) 
+tpith <- function(p,ka,kr,d,c,mode="plus", exportadv=FALSE) {
+
+  fa = (1-ka-kr)*(p*kr-(1-p)*(1-ka))
+  if (any(fa<0) & mode=="plus") warning("mode should be minus for some values")
+  fb = (1-ka-kr)*(p*d-c)-(1-ka)*(ka+kr-0.5)
+  fc = -(ka+kr-0.5)*c
+  pith = kaifm(fa,fb,fc,mode=mode)
+  
+  if (exportadv==TRUE) {
+    pi = seq(0,1,length=50)
+    adv = 2*(fa*pi^2 + fb*pi + fc)
+    names(adv) = pi
+    return(list(pith=pith,adv=adv))
+  } else {
+    return(pith)
+  }
+  
+}
+
+#tpith(0.85,0.3,0.3,0.8,0.4)
+
+## Pi threshold EU_H(phi_v1x1) > EU_H(phi_v1x0) 
+tvsgpith <- function(p,ka,kr,d,c,mode="plus", exportadv=FALSE) {
+  
+  fa = (1-ka-kr)*(p*kr-(1-p)*(1-ka)) - (1-ka-kr)*ka*(p*(1+ka-kr)-(ka+kr))
+  if (any(fa<0) & mode=="plus") warning("mode should be minus for some values")
+  fb = (1-ka-kr)*(p*d-c)-(1-ka)*(ka+kr-0.5) - ((1-ka-kr)*(p*ka*d - (ka+kr)*(d-c))-ka*(ka+kr-0.5))
+  fc = -(ka+kr-0.5)*c - (-(ka+kr-0.5)*(d-c))
+  pith = kaifm(fa,fb,fc,mode=mode)
+  
+  if (exportadv==TRUE) {
+    pi = seq(0,1,length=50)
+    adv = 2*(fa*pi^2 + fb*pi + fc)
+    names(adv) = pi
+    return(list(pith=pith,adv=adv))
+  } else {
+    return(pith)
+  }
+  
+}
+
+#tvsgpith(seq(0.75,1,by=0.05),0.3,0.3,0.6,0.4)
+
+## Simulation 1
+simdt <- data.frame(p=rep(c(0.75,0.85,0.95),each=50*3),
+                    ka = rep(c(0.26,0.3,0.35),50*3),
+                    kr = rep(c(0.26,0.3,0.35),50*3),
+                    d = rep(rep(seq(0.45,0.95,length=50),each=3),3),
+                    c = 0.4)
+
+simdt$gpi_fa_minus <- ifelse(simdt$p*(1+simdt$ka-simdt$kr)-(simdt$ka+simdt$kr)<0,1,0)
+all(simdt$gpi_fa_minus==0)
+simdt$gpi_low <- gpith(simdt$p,simdt$ka,simdt$kr,simdt$d,simdt$c)
+
+simdt$tpi_fa_minus <- ifelse(simdt$p*kr-(1-simdt$p)*(1-simdt$ka)<0,1,0)
+all(simdt$tpi_fa_minus)==0
+simdt$tpi_low <- tpith(simdt$p,simdt$ka,simdt$kr,simdt$d,simdt$c)
+
+simdt$tpiovgpi_fa_minus <- ifelse((1-simdt$ka-simdt$kr)*(simdt$p*simdt$kr-(1-simdt$p)*(1-simdt$ka)) - (1-simdt$ka-simdt$kr)*simdt$ka*(simdt$p*(1+simdt$ka-simdt$kr)-(simdt$ka+simdt$kr))<0,1,0)
+simdt$tpiovgpi_plus <- tvsgpith(simdt$p,simdt$ka,simdt$kr,simdt$d,simdt$c)
+simdt$tpiovgpi_minus <- tvsgpith(simdt$p,simdt$ka,simdt$kr,simdt$d,simdt$c, mode="minus")
+(simdt$tpiovgpi_fa_minus == 1)*1 + (simdt$tpiovgpi_minus > simdt$tpiovgpi_plus | is.na(simdt$tpiovgpi_minus))*1 
+simdt$tpiovgpi_low <- simdt$tpiovgpi_plus
+simdt$tpiovgpi_high <- ifelse(simdt$tpiovgpi_fa_minus==1,simdt$tpiovgpi_minus,Inf)
+simdt$tpiovgpi_low <- ifelse(simdt$tpiovgpi_high<0|is.nan(simdt$tpiovgpi_high),
+                             NA,simdt$tpiovgpi_low)
+
+simdt$tpi_low <- ifelse(simdt$tpi_low>1,simdt$tpi_low,
+                        ifelse(is.na(simdt$tpiovgpi_low),simdt$tpi_low,
+                               ifelse(simdt$tpiovgpi_low>simdt$tpi_low,
+                                      simdt$tpiovgpi_low,simdt$tpi_low)))
+
+simdt$delegatory_d1 <- (simdt$ka/(1-simdt$kr)+1)*simdt$c
+simdt$delegatory_d2 <- (simdt$kr/(1-simdt$ka)+1)*simdt$c
+simdt$delegatory_d <- ifelse(simdt$delegatory_d1>simdt$delegatory_d2,
+                             simdt$delegatory_d1,simdt$delegatory_d2)
+simdt$discouraged_d <- ifelse(simdt$delegatory_d1>simdt$delegatory_d2,
+                              simdt$delegatory_d2,simdt$delegatory_d1)
+
+prange <- ggplot(simdt) + 
+  geom_rect(aes(ymin=0,ymax=1,xmin=min(simdt$d),xmax=max(simdt$d),fill="a",colour="a")) + 
+  geom_ribbon(aes(ymin=gpi_low,ymax=Inf,x=d,fill="gpi",colour="gpi"),alpha=1) + 
+  geom_ribbon(aes(ymin=tpi_low,ymax=Inf,x=d,fill="tpi",colour="tpi"),alpha=1) +
+  geom_rect(aes(ymax=Inf,ymin=-Inf,
+                xmax=delegatory_d,xmin=discouraged_d),
+            linetype=2,colour="black",fill=NA) + 
+  facet_grid(ka~p,
+             labeller = label_bquote(
+               rows = kappa[a] ~ "=" ~ kappa[r] ~ "=" ~  .(ka),
+               cols = p ~ "=" ~ .(p))) + 
+  geom_rect(aes(ymin=0,ymax=1,xmin=min(simdt$d),xmax=max(simdt$d)),fill=NA,colour="black") + 
+  coord_cartesian(xlim=c(min(simdt$d),max(simdt$d)),ylim=c(0,1), expand=FALSE) + 
+  xlab("d (c=0.4)\n\nFrom the vertical line, the left is discouraged and the right is delegatory context") + 
+  ylab(bquote(pi)) +
+  scale_fill_manual(name=bquote("Equilibrium Policy Quality Decision ("~phi[H]~") "),
+                    labels = c(0,bquote(phi[v1x0]/p),bquote(phi[v1x1]/p)),
+                    values=c("white","#99d8c9","#f03b20")) +
+  scale_colour_manual(name=bquote("Equilibrium Policy Quality Decision ("~phi[H]~") "),
+                    labels = c(0,bquote(phi[v1x0]/p),bquote(phi[v1x1]/p)),
+                    values=c("black","black","black")) +
+  scale_y_continuous(breaks = c(0.2,0.4,0.6,0.8)) + 
+  theme_classic() + theme(plot.title = element_text(hjust = 0.5, size=13),
+                          panel.background = element_rect(fill="white",colour="black"),
+                          plot.background=element_rect(fill="white", colour="white"),
+                          legend.position = "bottom") +
+  annotate("text",x=0.94,y=0.2,label="Delegatory\nContext",size=3,hjust=1) + 
+  annotate("text",x=0.46,y=0.2,label="Discouraged\nContext",size=3,hjust=0)
+
+prange
+
+ggsave("figure/rangegraph-1.jpeg", prange, width=8, height=5.5, dpi=500)
+
+## Simulation 2 (smaller c)
+0.45/0.4; 0.95/0.4
+simdt <- data.frame(p=rep(c(0.75,0.85,0.95),each=50*3),
+                    ka = rep(c(0.26,0.3,0.35),50*3),
+                    kr = rep(c(0.26,0.3,0.35),50*3),
+                    d = rep(rep(seq(0.2*1.125,0.2*2.375,length=50),each=3),3),
+                    c = 0.2)
+
+simdt$gpi_fa_minus <- ifelse(simdt$p*(1+simdt$ka-simdt$kr)-(simdt$ka+simdt$kr)<0,1,0)
+all(simdt$gpi_fa_minus==0)
+simdt$gpi_low <- gpith(simdt$p,simdt$ka,simdt$kr,simdt$d,simdt$c)
+
+simdt$tpi_fa_minus <- ifelse(simdt$p*kr-(1-simdt$p)*(1-simdt$ka)<0,1,0)
+all(simdt$tpi_fa_minus)==0
+simdt$tpi_low <- tpith(simdt$p,simdt$ka,simdt$kr,simdt$d,simdt$c)
+
+simdt$tpiovgpi_fa_minus <- ifelse((1-simdt$ka-simdt$kr)*(simdt$p*simdt$kr-(1-simdt$p)*(1-simdt$ka)) - (1-simdt$ka-simdt$kr)*simdt$ka*(simdt$p*(1+simdt$ka-simdt$kr)-(simdt$ka+simdt$kr))<0,1,0)
+simdt$tpiovgpi_plus <- tvsgpith(simdt$p,simdt$ka,simdt$kr,simdt$d,simdt$c)
+simdt$tpiovgpi_minus <- tvsgpith(simdt$p,simdt$ka,simdt$kr,simdt$d,simdt$c, mode="minus")
+(simdt$tpiovgpi_fa_minus == 1)*1 + (simdt$tpiovgpi_minus > simdt$tpiovgpi_plus)*1 
+(simdt$tpiovgpi_fa_minus == 1)*1 + (simdt$tpiovgpi_minus > simdt$tpiovgpi_plus | is.na(simdt$tpiovgpi_minus))*1 
+simdt$tpiovgpi_low <- simdt$tpiovgpi_plus
+simdt$tpiovgpi_high <- ifelse(simdt$tpiovgpi_fa_minus==1,simdt$tpiovgpi_minus,Inf)
+simdt$tpiovgpi_low <- ifelse(is.nan(simdt$tpiovgpi_high) & simdt$tpiovgpi_fa_minus==0,-Inf,
+                             ifelse(simdt$tpiovgpi_high<0 | is.nan(simdt$tpiovgpi_high),
+                             NA,simdt$tpiovgpi_low))
+
+
+simdt$tpi_low <- ifelse(simdt$tpi_low>1,simdt$tpi_low,
+                        ifelse(is.na(simdt$tpiovgpi_low),simdt$tpi_low,
+                               ifelse(simdt$tpiovgpi_low>simdt$tpi_low,
+                                      simdt$tpiovgpi_low,simdt$tpi_low)))
+
+simdt$delegatory_d1 <- (simdt$ka/(1-simdt$kr)+1)*simdt$c
+simdt$delegatory_d2 <- (simdt$kr/(1-simdt$ka)+1)*simdt$c
+simdt$delegatory_d <- ifelse(simdt$delegatory_d1>simdt$delegatory_d2,
+                             simdt$delegatory_d1,simdt$delegatory_d2)
+simdt$discouraged_d <- ifelse(simdt$delegatory_d1>simdt$delegatory_d2,
+                              simdt$delegatory_d2,simdt$delegatory_d1)
+
+prange2 <- ggplot(simdt) + 
+  geom_rect(aes(ymin=0,ymax=1,xmin=min(simdt$d),xmax=max(simdt$d),fill="a",colour="a")) + 
+  geom_ribbon(aes(ymin=gpi_low,ymax=Inf,x=d,fill="gpi",colour="gpi"),alpha=1) + 
+  geom_ribbon(aes(ymin=tpi_low,ymax=Inf,x=d,fill="tpi",colour="tpi"),alpha=1) +
+  geom_rect(aes(ymax=Inf,ymin=-Inf,
+                xmax=delegatory_d,xmin=discouraged_d),
+            linetype=2,colour="black",fill=NA) +
+  facet_grid(ka~p,
+             labeller = label_bquote(
+               rows = kappa[a] ~ "=" ~ kappa[r] ~ "=" ~  .(ka),
+               cols = p ~ "=" ~ .(p))) + 
+  geom_rect(aes(ymin=0,ymax=1,xmin=min(simdt$d),xmax=max(simdt$d)),fill=NA,colour="black") + 
+  coord_cartesian(xlim=c(min(simdt$d),max(simdt$d)),ylim=c(0,1), expand=FALSE) + 
+  xlab("d (c=0.2)\n\nFrom the vertical line, the left is discouraged and the right is delegatory context") + 
+  ylab(bquote(pi)) +
+  scale_fill_manual(name=bquote("Equilibrium Policy Quality Decision ("~phi[H]~") "),
+                    labels = c(0,bquote(phi[v1x0]/p),bquote(phi[v1x1]/p)),
+                    values=c("white","#99d8c9","#f03b20")) +
+  scale_colour_manual(name=bquote("Equilibrium Policy Quality Decision ("~phi[H]~") "),
+                      labels = c(0,bquote(phi[v1x0]/p),bquote(phi[v1x1]/p)),
+                      values=c("black","black","black")) +
+  scale_y_continuous(breaks = c(0.2,0.4,0.6,0.8)) + 
+  theme_classic() + theme(plot.title = element_text(hjust = 0.5, size=13),
+                          panel.background = element_rect(fill="white",colour="black"),
+                          plot.background=element_rect(fill="white", colour="white"),
+                          legend.position = "bottom") +
+  annotate("text",x=max(simdt$d)-0.01,y=0.2,label="Delegatory\nContext",size=3,hjust=1) + 
+  annotate("text",x=min(simdt$d)+0.01,y=0.2,label="Discouraged\nContext",size=3,hjust=0)
+prange2
+
+ggsave("figure/rangegraph-2.jpeg", prange2, width=8, height=5.5, dpi=500)
+
+## Simulation 3 (larger c)
+0.45/0.4; 0.95/0.4
+simdt <- data.frame(p=rep(c(0.75,0.85,0.95),each=50*3),
+                    ka = rep(c(0.26,0.3,0.35),50*3),
+                    kr = rep(c(0.26,0.3,0.35),50*3),
+                    d = rep(rep(seq(0.6*1.125,0.6*2.375,length=50),each=3),3),
+                    c = 0.6)
+
+simdt$gpi_fa_minus <- ifelse(simdt$p*(1+simdt$ka-simdt$kr)-(simdt$ka+simdt$kr)<0,1,0)
+all(simdt$gpi_fa_minus==0)
+simdt$gpi_low <- gpith(simdt$p,simdt$ka,simdt$kr,simdt$d,simdt$c)
+
+simdt$tpi_fa_minus <- ifelse(simdt$p*kr-(1-simdt$p)*(1-simdt$ka)<0,1,0)
+all(simdt$tpi_fa_minus)==0
+simdt$tpi_low <- tpith(simdt$p,simdt$ka,simdt$kr,simdt$d,simdt$c)
+
+simdt$tpiovgpi_fa_minus <- ifelse((1-simdt$ka-simdt$kr)*(simdt$p*simdt$kr-(1-simdt$p)*(1-simdt$ka)) - (1-simdt$ka-simdt$kr)*simdt$ka*(simdt$p*(1+simdt$ka-simdt$kr)-(simdt$ka+simdt$kr))<0,1,0)
+simdt$tpiovgpi_plus <- tvsgpith(simdt$p,simdt$ka,simdt$kr,simdt$d,simdt$c)
+simdt$tpiovgpi_minus <- tvsgpith(simdt$p,simdt$ka,simdt$kr,simdt$d,simdt$c, mode="minus")
+(simdt$tpiovgpi_fa_minus == 1)*1 + (simdt$tpiovgpi_minus > simdt$tpiovgpi_plus | is.na(simdt$tpiovgpi_minus))*1 
+simdt$tpiovgpi_low <- simdt$tpiovgpi_plus
+simdt$tpiovgpi_high <- ifelse(simdt$tpiovgpi_fa_minus==1,simdt$tpiovgpi_minus,Inf)
+simdt$tpiovgpi_low <- ifelse(simdt$tpiovgpi_high<0|is.nan(simdt$tpiovgpi_high),
+                             NA,simdt$tpiovgpi_low)
+
+simdt$tpi_low <- ifelse(simdt$tpi_low>1,simdt$tpi_low,
+                        ifelse(is.na(simdt$tpiovgpi_low),simdt$tpi_low,
+                               ifelse(simdt$tpiovgpi_low>simdt$tpi_low,
+                                      simdt$tpiovgpi_low,simdt$tpi_low)))
+
+simdt$delegatory_d1 <- (simdt$ka/(1-simdt$kr)+1)*simdt$c
+simdt$delegatory_d2 <- (simdt$kr/(1-simdt$ka)+1)*simdt$c
+simdt$delegatory_d <- ifelse(simdt$delegatory_d1>simdt$delegatory_d2,
+                             simdt$delegatory_d1,simdt$delegatory_d2)
+simdt$discouraged_d <- ifelse(simdt$delegatory_d1>simdt$delegatory_d2,
+                              simdt$delegatory_d2,simdt$delegatory_d1)
+
+prange3 <- ggplot(simdt) + 
+  geom_rect(aes(ymin=0,ymax=1,xmin=min(simdt$d),xmax=max(simdt$d),fill="a",colour="a")) + 
+  geom_ribbon(aes(ymin=gpi_low,ymax=Inf,x=d,fill="gpi",colour="gpi"),alpha=1) + 
+  geom_ribbon(aes(ymin=tpi_low,ymax=Inf,x=d,fill="tpi",colour="tpi"),alpha=1) +
+  geom_rect(aes(ymax=Inf,ymin=-Inf,
+                xmax=delegatory_d + 0.0001,xmin=delegatory_d),
+            linetype=2,colour="black",fill=NA) +
+  facet_grid(ka + kr ~p,
+             labeller = label_bquote(
+               rows = kappa[a] ~ "=" ~ kappa[r] ~ "=" ~  .(ka),
+               cols = p ~ "=" ~ .(p))) + 
+  geom_rect(aes(ymin=0,ymax=1,xmin=min(simdt$d),xmax=max(simdt$d)),fill=NA,colour="black") + 
+  coord_cartesian(xlim=c(min(simdt$d),max(simdt$d)),ylim=c(0,1), expand=FALSE) + 
+  xlab("d (c=0.6)\n\nFrom the vertical line, the left is discouraged and the right is delegatory context") + 
+  ylab(bquote(pi)) +
+  scale_fill_manual(name=bquote("Equilibrium Policy Quality Decision ("~phi[H]~") "),
+                    labels = c(0,bquote(phi[v1x0]/p),bquote(phi[v1x1]/p)),
+                    values=c("white","#99d8c9","#f03b20")) +
+  scale_colour_manual(name=bquote("Equilibrium Policy Quality Decision ("~phi[H]~") "),
+                      labels = c(0,bquote(phi[v1x0]/p),bquote(phi[v1x1]/p)),
+                      values=c("black","black","black")) +
+  scale_y_continuous(breaks = c(0.2,0.4,0.6,0.8)) + 
+  theme_classic() + theme(plot.title = element_text(hjust = 0.5, size=13),
+                          panel.background = element_rect(fill="white",colour="black"),
+                          plot.background=element_rect(fill="white", colour="white"),
+                          legend.position = "bottom") +
+  annotate("text",x=max(simdt$d)-0.01,y=0.2,label="Delegatory\nContext",size=3,hjust=1) + 
+  annotate("text",x=min(simdt$d)+0.01,y=0.2,label="Discouraged\nContext",size=3,hjust=0)
+prange3
+
+ggsave("figure/rangegraph-3.jpeg", prange3, width=8, height=5.5, dpi=500)
+
+## Simulation 4
+simdt <- data.frame(p=rep(c(0.75,0.85,0.95),each=50*3),
+                    ka = rep(c(0.35,0.3,0.25),50*3),
+                    kr = rep(c(0.25,0.3,0.35),50*3),
+                    d = rep(rep(seq(0.45,0.95,length=50),each=3),3),
+                    c = 0.4)
+
+simdt$gpi_fa_minus <- ifelse(simdt$p*(1+simdt$ka-simdt$kr)-(simdt$ka+simdt$kr)<0,1,0)
+all(simdt$gpi_fa_minus==0)
+simdt$gpi_low <- gpith(simdt$p,simdt$ka,simdt$kr,simdt$d,simdt$c)
+
+simdt$tpi_fa_minus <- ifelse(simdt$p*kr-(1-simdt$p)*(1-simdt$ka)<0,1,0)
+all(simdt$tpi_fa_minus)==0
+simdt$tpi_low <- tpith(simdt$p,simdt$ka,simdt$kr,simdt$d,simdt$c)
+
+simdt$tpiovgpi_fa_minus <- ifelse((1-simdt$ka-simdt$kr)*(simdt$p*simdt$kr-(1-simdt$p)*(1-simdt$ka)) - (1-simdt$ka-simdt$kr)*simdt$ka*(simdt$p*(1+simdt$ka-simdt$kr)-(simdt$ka+simdt$kr))<0,1,0)
+simdt$tpiovgpi_plus <- tvsgpith(simdt$p,simdt$ka,simdt$kr,simdt$d,simdt$c)
+simdt$tpiovgpi_minus <- tvsgpith(simdt$p,simdt$ka,simdt$kr,simdt$d,simdt$c, mode="minus")
+(simdt$tpiovgpi_fa_minus == 1)*1 + (simdt$tpiovgpi_minus > simdt$tpiovgpi_plus | is.na(simdt$tpiovgpi_minus))*1 
+simdt$tpiovgpi_low <- simdt$tpiovgpi_plus
+simdt$tpiovgpi_high <- ifelse(simdt$tpiovgpi_fa_minus==1,simdt$tpiovgpi_minus,Inf)
+simdt$tpiovgpi_low <- ifelse(simdt$tpiovgpi_high<0|is.nan(simdt$tpiovgpi_high),
+                             NA,simdt$tpiovgpi_low)
+
+simdt$tpi_low <- ifelse(simdt$tpi_low>1,simdt$tpi_low,
+                        ifelse(is.na(simdt$tpiovgpi_low),simdt$tpi_low,
+                               ifelse(simdt$tpiovgpi_low>simdt$tpi_low,
+                                      simdt$tpiovgpi_low,simdt$tpi_low)))
+
+simdt$delegatory_d1 <- (simdt$ka/(1-simdt$kr)+1)*simdt$c
+simdt$delegatory_d2 <- (simdt$kr/(1-simdt$ka)+1)*simdt$c
+simdt$delegatory_d <- ifelse(simdt$delegatory_d1>simdt$delegatory_d2,
+                             simdt$delegatory_d1,simdt$delegatory_d2)
+simdt$discouraged_d <- ifelse(simdt$delegatory_d1>simdt$delegatory_d2,
+                             simdt$delegatory_d2,simdt$delegatory_d1)
+
+prange4 <- ggplot(simdt) + 
+  geom_rect(aes(ymin=0,ymax=1,xmin=0.45,xmax=0.95,fill="a",colour="a")) + 
+  geom_ribbon(aes(ymin=gpi_low,ymax=Inf,x=d,fill="gpi",colour="gpi"),alpha=1) + 
+  geom_ribbon(aes(ymin=tpi_low,ymax=Inf,x=d,fill="tpi",colour="tpi"),alpha=1) +
+  geom_rect(aes(ymax=Inf,ymin=-Inf,
+                xmax=delegatory_d,xmin=discouraged_d),
+            linetype=2,colour="black",fill=NA) + 
+  facet_grid(ka + kr ~p,
+             labeller = label_bquote(
+               rows = kappa[a] ~ "=" ~ .(ka) ~ ";" ~ kappa[r] ~ "=" ~  .(kr),
+               cols = p ~ "=" ~ .(p))) + 
+  geom_rect(aes(ymin=0,ymax=1,xmin=0.45,xmax=0.95),fill=NA,colour="black") + 
+  coord_cartesian(xlim=c(0.45,0.95),ylim=c(0,1), expand=FALSE) + 
+  xlab("d (c=0.4)\n\nFrom the vertical line, the left is discouraged and the right is delegatory context") + 
+  ylab(bquote(pi)) +
+  scale_fill_manual(name=bquote("Equilibrium Policy Quality Decision ("~phi[H]~") "),
+                    labels = c(0,bquote(phi[v1x0]/p),bquote(phi[v1x1]/p)),
+                    values=c("white","#99d8c9","#f03b20")) +
+  scale_colour_manual(name=bquote("Equilibrium Policy Quality Decision ("~phi[H]~") "),
+                      labels = c(0,bquote(phi[v1x0]/p),bquote(phi[v1x1]/p)),
+                      values=c("black","black","black")) +
+  scale_y_continuous(breaks = c(0.2,0.4,0.6,0.8)) + 
+  theme_classic() + theme(plot.title = element_text(hjust = 0.5, size=13),
+                          panel.background = element_rect(fill="white",colour="black"),
+                          plot.background=element_rect(fill="white", colour="white"),
+                          legend.position = "bottom") +
+  annotate("text",x=0.94,y=0.2,label="Delegatory\nContext",size=3,hjust=1) + 
+  annotate("text",x=0.46,y=0.2,label="Discouraged\nContext",size=3,hjust=0)
+prange4
+
+ggsave("figure/rangegraph-4.jpeg", prange4, width=8, height=5.5, dpi=500)
+
 #' # Save Workspace
 
 save.image("Kato2018thlo_simulations.RData")
+
