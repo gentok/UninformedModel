@@ -1,6 +1,6 @@
 ## Kato, Gento. Forthcoming. "When Strategic Uninformed Abstention Improves Democratic Accountability." *Journal of Theoretical Politics*.
 
-* #### [Online Appendix A-D: Simulation Codes](Kato2020whst_appendix.pdf)
+* #### [Online Appendix A-D: Game Proofs and Comprative Statics](Kato2020whst_appendix.pdf)
 * #### [Online Appendix E: Simulation Codes](Kato2020whst_simulations.R)
 
 **Abstract**: The recent development in formal studies of election makes two sets of findings that question the custom to treat voter information as a prerequisite for competent democratic decision-making. One argues that uninformed abstention is an effective strategy to approximate informed electoral outcome, and another suggests that uninformed voters may motivate strategic political elites to improve accountability. This article bridges and extends two findings by analyzing strategic incentives in the comprehensive voting model with abstention and its connection with electoral accountability. The proposed model offers a contextual explanation for two contrasting logic in uninformed abstention ---delegation and discouragement--- and shows that uninformed voting with abstention sometimes improves accountability. Furthermore, uninformed abstention is more effective in generating democratically preferred outcome under delegatory than discouraged context. The results make significant addition to the existing accountability literature by providing a more general mechanism by which less voter information improves policy outcomes.
