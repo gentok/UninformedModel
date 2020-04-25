@@ -1,7 +1,7 @@
 #' ---
 #' title: "Appendix E: Simulation Codes for Comparative Statics"
 #' author: "Gento Kato"
-#' date: "December 2, 2018"
+#' date: "April 25, 2020"
 #' ---
 
 #' # Preparation
@@ -763,5 +763,5 @@ ggsave("figure/rangegraph-4.jpeg", prange4, width=8, height=5.5, dpi=500)
 
 #' # Save Workspace
 
-save.image("Kato2018thlo_simulations.RData")
+save.image("Kato2020whst_simulations.RData")
 
